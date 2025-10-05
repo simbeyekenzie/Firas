@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vegetables — FIRAS Sunrise Farms</title>
+
+  <!-- Fonts + your global styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="global.css" />
+
+  <style>
+    /* ===== Page-specific styles for Vegetables Products ===== */
+    :root{
+      --eggshell:#f7f4e8;
+      --mint:#e9f6ea;
+      --green:#0f4d3f;
+      --orange:#ff7a1a;
+      --txt:#111;
+      --muted:#5a5f66;
+      --shadow:0 12px 30px rgba(0,0,0,.10);
+    }
+
+       /* Minimal header (logo centered) */
+       .nav{ position:sticky; top:0; z-index:40; display:flex; justify-content:center; align-items:center; background:transparent; padding:.9rem 1rem; box-shadow:0 2px 8px rgba(0,0,0,.05); }
+    .nav .logo img{ height:46px; display:block; }
+
+    /* ========== EDGE-TO-EDGE HERO ========== */
+    .vp-hero{
+      position:relative; isolation:isolate;
+      min-height:100vh; display:grid; place-items:center; overflow:hidden;
+      background: linear-gradient(180deg, #e8ecef 0%, #f6f7f8 40%, #ffffff 100%);
+      box-shadow: inset 0 60px 120px rgba(0,0,0,.06), inset 0 -60px 120px rgba(0,0,0,.05);
+    }
+    .vp-hero-bg{ position:absolute; inset:0; background:center/cover no-repeat; }
+    .vp-hero-bg::after{
+      content:""; position:absolute; inset:0;
+      background: linear-gradient(rgba(15,77,63,.55), rgba(0,0,0,.35)); mix-blend-mode:multiply;
+    }
+    .vp-hero-inner{
+      position:relative; z-index:1; color:#fff; text-align:center;
+      width:min(1100px,92%); padding: clamp(2rem,4vw,3rem) clamp(1rem,3vw,2rem);
+    }
+    .vp-eyebrow{ margin:0 0 .35rem; letter-spacing:.06em; font-weight:700; color:#eaf8f0; }
+    .vp-title{ margin:.1rem 0 .5rem; font-weight:800; text-transform:uppercase; font-size: clamp(2.2rem, 6vw, 3.2rem); }
+    .vp-sub{ margin:0 auto 1.1rem; max-width:70ch; font-weight:600; color:#f2f2f2; }
+    .btn{ display:inline-block; text-decoration:none; border-radius:999px; padding:.85rem 1.4rem; font-weight:700; }
+    .btn-solid{ background:var(--orange); color:#fff; border:2px solid var(--orange); }
+    .btn-outline{ background:transparent; color:#fff; border:2px solid #fff; }
+    .vp-anchors{ display:flex; gap:.6rem; flex-wrap:wrap; justify-content:center; margin-top:1rem; }
+    .vp-anchors a{ text-decoration:none; font-weight:700; border-radius:999px; padding:.55rem 1rem; border:2px solid rgba(255,255,255,.85); color:#fff; }
+    .vp-anchors a:hover{ background:#ffffff22; }
+
+    /* ========== Sections (alternating layout) ========== */
+    .vp-section{ padding: clamp(3rem, 6vw, 8rem) 1rem; background:#fff; }
+    .vp-section.alt{ background: linear-gradient(180deg, var(--eggshell), var(--mint) 85%); }
+
+    .vp-wrap{
+      max-width:1200px; margin:0 auto;
+      display:grid; grid-template-columns: 1.05fr .95fr;
+      gap: clamp(1.25rem, 3.5vw, 2rem); align-items:center;
+      padding-left: clamp(1rem, 3vw, 2rem);
+      padding-right: clamp(1rem, 3vw, 2rem);
+    }
+    .vp-wrap.reverse{ grid-template-columns: .95fr 1.05fr; }
+
+    .vp-media img{ width:100%; height:auto; display:block; object-fit:cover; border-radius:0; }
+
+    .vp-kicker{ margin:0 0 .25rem; font-weight:700; letter-spacing:.06em; color:#9aa1a9; }
+    .vp-h{ margin:.1rem 0 .5rem; font-weight:800; color:#0b0b0b; font-size: clamp(1.8rem, 3.6vw, 2.4rem); }
+    .vp-copy{ margin:0 0 1rem; color:var(--txt); line-height:1.7; }
+    .vp-bullets{ margin:.25rem 0 1.1rem; padding-left:1.1rem; color:#333; }
+    .vp-bullets li{ margin:.25rem 0; }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .vp-wrap, .vp-wrap.reverse{ grid-template-columns:1fr; }
+      .vp-hero{ min-height:100vh; }
+    }
+    @media (max-width: 640px){
+      .vp-hero-inner{ padding-left:4rem; padding-right:4rem; } /* your mobile rule */
+    }
+
+    /* ===== Reveal / Fade-in (added) ===== */
+    .reveal{
+      opacity:0; transform: translateY(16px);
+      transition: opacity .6s ease, transform .6s ease;
+      will-change: opacity, transform;
+    }
+    .reveal.is-visible{
+      opacity:1; transform: translateY(0);
+    }
+    .reveal-stagger > *{
+      opacity:0; transform: translateY(16px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal-stagger.is-visible > *{
+      opacity:1; transform: translateY(0);
+    }
+    .reveal-stagger.is-visible > *:nth-child(1){ transition-delay:.05s; }
+    .reveal-stagger.is-visible > *:nth-child(2){ transition-delay:.12s; }
+    .reveal-stagger.is-visible > *:nth-child(3){ transition-delay:.19s; }
+    .reveal-stagger.is-visible > *:nth-child(4){ transition-delay:.26s; }
+    .reveal-stagger.is-visible > *:nth-child(5){ transition-delay:.33s; }
+  </style>
+</head>
+<body>
+
+  <!-- Transparent header (like main page) -->
+  <header class="nav reveal">
+    <a class="logo" href="index.html">
+      <img src="logo.PNG" alt="FIRAS Sunrise Farms Logo">
+    </a>
+  </header>
+
+  <!-- ============ EDGE-TO-EDGE HERO ============ -->
+  <section class="vp-hero reveal">
+    <div class="vp-hero-bg" style="background-image:url('./assets/v-hero2.JPG')"></div>
+    <div class="vp-hero-inner reveal-stagger">
+      <p class="vp-eyebrow">FIRAS Sunrise Farms</p>
+      <h1 class="vp-title"><span style="color:var(--orange)">Vegetable</span> Products</h1>
+      <p class="vp-sub">Harvested at sunrise, handled cleanly, delivered fresh from our fields to your table.</p>
+
+      <div class="vp-anchors">
+        <a href="#onions">Onions</a>
+        <a href="#cucumbers">Cucumbers</a>
+        <a href="#okra">Okra</a>
+        <a href="#mixed">Vegetables</a>
+        <a href="#tomatoes">Tomatoes</a>
+        <a href="#pumpkins">Pumpkins</a>
+        <a href="#carrots">Carrots</a>
+        <a href="#maize">Maize Cobs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ONIONS ============ -->
+  <section id="onions" class="vp-section reveal">
+    <div class="vp-wrap reverse reveal-stagger">
+      <div class="vp-media">
+        <img src="./assets/vegetables-onion.png" alt="Fresh onions">
+      </div>
+      <div class="vp-text">
+        <p class="vp-kicker">Bold Flavor • Long Keep</p>
+        <h2 class="vp-h">Onions</h2>
+        <p class="vp-copy">
+          Firm bulbs with dry skins, cured carefully to enhance shelf life and taste. Great for stews and salads.
+        </p>
+        <ul class="vp-bullets">
+          <li>Sun-cured for proper drying</li>
+          <li>Sorted for size & quality</li>
+          <li>Packed same day for freshness</li>
+        </ul>
+        <a href="#cucumbers" class="btn btn-solid">See Cucumbers</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CUCUMBERS ============ -->
+  <section id="cucumbers" class="vp-section alt reveal">
+    <div class="vp-wrap reveal-stagger">
+      <div class="vp-text">
+        <p class="vp-kicker">Crisp & Refreshing</p>
+        <h2 class="vp-h">Cucumbers</h2>
+        <p class="vp-copy">
+          Picked at peak crunch for salads and sides. Hydrating, mild, and versatile for daily meals.
+        </p>
+        <ul class="vp-bullets">
+          <li>Harvested early for max crunch</li>
+          <li>Clean handling & quick cooling</li>
+          <li>Great for salads & pickling</li>
+        </ul>
+        <a href="#okra" class="btn btn-outline" style="border-color:var(--green); color:var(--green)">Next: Okra</a>
+      </div>
+      <div class="vp-media">
+        <img src="./cucumberabout.png" alt="Fresh cucumbers">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OKRA ============ -->
+  <section id="okra" class="vp-section reveal">
+    <div class="vp-wrap reverse reveal-stagger">
+      <div class="vp-media">
+        <img src="./assets/okra.png" alt="Fresh okra">
+      </div>
+      <div class="vp-text">
+        <p class="vp-kicker">Tender Pods</p>
+        <h2 class="vp-h">Okra</h2>
+        <p class="vp-copy">
+          Young, tender okra harvested early for smooth texture perfect for stews, grills, and fries.
+        </p>
+        <ul class="vp-bullets">
+          <li>Picked young for tenderness</li>
+          <li>Rinsed and sorted same day</li>
+          <li>Ideal for cooking, simmering & frying</li>
+        </ul>
+        <a href="#mixed" class="btn btn-solid">See Mixed Veg</a>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- ============ MIXED VEGETABLES ============ -->
+  <section id="mixed" class="vp-section alt reveal">
+    <div class="vp-wrap reveal-stagger">
+      <div class="vp-text">
+        <p class="vp-kicker">Greens & Roots</p>
+        <h2 class="vp-h">Vegetables</h2>
+        <p class="vp-copy">
+          A rotating variety of seasonal greens and roots, field fresh, nutrient dense, and harvested at dawn.
+        </p>
+        <ul class="vp-bullets">
+          <li>Seasonal assortment picked daily</li>
+          <li>Minimal inputs, soil first practices</li>
+          <li>Packed promptly to preserve quality</li>
+        </ul>
+        <a href="#tomatoes" class="btn btn-outline" style="border-color:var(--green); color:var(--green)">Next: Tomatoes</a>
+      </div>
+      <div class="vp-media">
+        <img src="./assets/v-vegetables.png" alt="Mixed fresh vegetables">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TOMATOES ============ -->
+  <section id="tomatoes" class="vp-section reveal">
+    <div class="vp-wrap reverse reveal-stagger">
+      <div class="vp-media">
+        <img src="./assets/v-tomato.png" alt="Fresh tomatoes">
+      </div>
+      <div class="vp-text">
+        <p class="vp-kicker">Juicy & Sweet</p>
+        <h2 class="vp-h">Tomatoes</h2>
+        <p class="vp-copy">
+          Vine-ripened for flavor and color. Great for sauces, salads, and sandwiches.
+        </p>
+        <ul class="vp-bullets">
+          <li>Picked at color for sweetness</li>
+          <li>Handled gently to prevent bruising</li>
+          <li>Same-day packing and delivery</li>
+        </ul>
+        <a href="#pumpkins" class="btn btn-solid">See Pumpkins</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PUMPKINS ============ -->
+  <section id="pumpkins" class="vp-section alt reveal">
+    <div class="vp-wrap reveal-stagger">
+      <div class="vp-text">
+        <p class="vp-kicker">Hearty & Versatile</p>
+        <h2 class="vp-h">Pumpkins</h2>
+        <p class="vp-copy">
+          Naturally sweet and rich in nutrients. Perfect for roasting, soups, and baking.
+        </p>
+        <ul class="vp-bullets">
+          <li>Sun-cured for longer storage</li>
+          <li>Clean, dry handling</li>
+          <li>Ideal for savory or sweet dishes</li>
+        </ul>
+        <a href="#carrots" class="btn btn-outline" style="border-color:var(--green); color:var(--green)">Next: Carrots</a>
+      </div>
+      <div class="vp-media">
+        <img src="./assets/images/pumpkin.PNG" alt="Pumpkins">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CARROTS ============ -->
+  <section id="carrots" class="vp-section reveal">
+    <div class="vp-wrap reverse reveal-stagger">
+      <div class="vp-media">
+        <img src="./assets/vegetables-carrots.png" alt="Fresh carrots">
+      </div>
+      <div class="vp-text">
+        <p class="vp-kicker">Sweet & Crunchy</p>
+        <h2 class="vp-h">Carrots</h2>
+        <p class="vp-copy">
+          Pulled early for tenderness and sweetness, washed and packed the same day.
+        </p>
+        <ul class="vp-bullets">
+          <li>Careful washing & trimming</li>
+          <li>Sorted by size & freshness</li>
+          <li>Great raw or cooked</li>
+        </ul>
+        <a href="#onions" class="btn btn-solid">Back to Onions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MAIZE COBS ============ -->
+<section id="maize" class="vp-section alt reveal">
+  <div class="vp-wrap reveal-stagger">
+    <div class="vp-text">
+      <p class="vp-kicker">Sweet & Golden</p>
+      <h2 class="vp-h">Maize Cobs</h2>
+      <p class="vp-copy">
+        Harvested at the milk stage for tenderness and natural sweetness. Great for roasting, boiling,
+        or grilling perfect for family meals.
+      </p>
+      <ul class="vp-bullets">
+        <li>Picked young for juiciness</li>
+        <li>Husk-on handling to preserve freshness</li>
+        <li>Sorted and packed the same day</li>
+      </ul>
+      <a href="#onions" class="btn btn-outline" style="border-color:var(--green); color:var(--green)">Back to Onions</a>
+    </div>
+    <div class="vp-media">
+      <!-- Swap with your real image -->
+      <img src="./assets/vegetable-maize.png" alt="Fresh maize cobs">
+    </div>
+  </div>
+</section>
+
+  <!-- Fade-in on scroll (IntersectionObserver) -->
+  <script>
+    (() => {
+      const els = document.querySelectorAll('.reveal, .reveal-stagger');
+      if (!('IntersectionObserver' in window) || !els.length) return;
+
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target); // reveal once
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+
+      els.forEach(el => io.observe(el));
+    })();
+  </script>
+</body>
+</html>

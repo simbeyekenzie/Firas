@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dairy — FIRAS Sunrise Farms</title>
+
+  <!-- Fonts + global -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="global.css" />
+
+  <style>
+    :root{
+      --eggshell:#f7f4e8;
+      --mint:#e9f6ea;
+      --green:#0f4d3f;
+      --orange:#ff7a1a;
+      --txt:#111;
+      --muted:#5a5f66;
+      --shadow:0 12px 30px rgba(0,0,0,.10);
+    }
+
+    /* Transparent sticky nav */
+    .nav{
+      position:fixed; top:0; left:0; right:0; z-index:50;
+      display:flex; justify-content:center; align-items:center;
+      padding:.9rem 1rem;
+      background:transparent;
+    }
+    .nav .logo img{ height:46px; display:block; }
+
+    /* ========== HERO ========== */
+    .dp-hero{
+      position:relative; isolation:isolate;
+      min-height:100vh;
+      display:grid; place-items:center; overflow:hidden;
+    }
+    .dp-hero-bg{ position:absolute; inset:0; background:center/cover no-repeat; }
+    .dp-hero-bg::after{
+      content:""; position:absolute; inset:0;
+      background:linear-gradient(rgba(15,77,63,.55), rgba(0,0,0,.35));
+      mix-blend-mode:multiply;
+    }
+    .dp-hero-inner{
+      position:relative; z-index:1; color:#fff; text-align:center;
+      width:min(1100px,92%); padding: clamp(2rem,4vw,3rem) clamp(1rem,3vw,2rem);
+    }
+    .dp-eyebrow{ margin:0 0 .35rem; letter-spacing:.06em; font-weight:700; color:#eaf8f0; }
+    .dp-title{ margin:.1rem 0 .5rem; font-weight:800; text-transform:uppercase; font-size: clamp(2.2rem, 6vw, 3.2rem); }
+    .dp-sub{ margin:0 auto 1.1rem; max-width:70ch; font-weight:600; color:#f2f2f2; }
+
+    .btn{ display:inline-block; text-decoration:none; border-radius:999px; padding:.85rem 1.4rem; font-weight:700; }
+    .btn-solid{ background:var(--orange); color:#fff; border:2px solid var(--orange); }
+    .btn-outline{ background:transparent; color:#fff; border:2px solid #fff; }
+
+    /* Anchors row */
+    .dp-anchors{ display:flex; gap:.6rem; flex-wrap:wrap; justify-content:center; margin-top:1rem; }
+    .dp-anchors a{
+      text-decoration:none; font-weight:700; border-radius:999px; padding:.55rem 1rem;
+      border:2px solid rgba(255,255,255,.85); color:#fff;
+    }
+    .dp-anchors a:hover{ background:#ffffff22; }
+
+    /* ========== SECTIONS ========== */
+    .dp-section{
+      padding: clamp(3rem, 6vw, 5rem) 1rem;
+      background:#fff;
+    }
+    .dp-section.alt{
+      background:linear-gradient(180deg, var(--eggshell), var(--mint) 85%);
+    }
+    .dp-wrap{
+      max-width:1200px; margin:0 auto;
+      display:grid; grid-template-columns: 1.05fr .95fr;
+      gap: clamp(1.25rem, 3.5vw, 2rem); align-items:center;
+      padding-left: clamp(1rem, 3vw, 2rem);
+      padding-right: clamp(1rem, 3vw, 2rem);
+    }
+    .dp-wrap.reverse{ grid-template-columns: .95fr 1.05fr; }
+
+    .dp-media img{
+      width:100%; height:auto; display:block; object-fit:cover;
+      border-radius:0;
+    }
+
+    .dp-kicker{ margin:0 0 .25rem; font-weight:700; letter-spacing:.06em; color:#9aa1a9; }
+    .dp-h{ margin:.1rem 0 .5rem; font-weight:800; color:#0b0b0b; font-size: clamp(1.8rem, 3.6vw, 2.4rem); }
+    .dp-copy{ margin:0 0 1rem; color:var(--txt); line-height:1.7; }
+    .dp-bullets{ margin:.25rem 0 1.1rem; padding-left:1.1rem; color:#333; }
+    .dp-bullets li{ margin:.25rem 0; }
+
+    /* Reveal */
+    .reveal{ opacity:0; transform:translateY(40px); transition: all .8s ease-out; }
+    .reveal.visible{ opacity:1; transform:translateY(0); }
+
+    @media (max-width: 980px){
+      .dp-wrap, .dp-wrap.reverse{ grid-template-columns:1fr; }
+      .dp-hero{ min-height:100vh; }
+    }
+    @media (max-width:640px){
+      .dp-hero-inner{ padding-left:4rem; padding-right:4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <header class="nav">
+    <a class="logo" href="index.html">
+      <img src="logo.PNG" alt="FIRAS Sunrise Farms Logo">
+    </a>
+  </header>
+
+  <!-- HERO -->
+  <section class="dp-hero">
+    <div class="dp-hero-bg" style="background-image:url('./assets/images/dairyhero.JPG')"></div>
+    <div class="dp-hero-inner">
+      <p class="dp-eyebrow">FIRAS Sunrise Farms</p>
+      <h1 class="dp-title"><span style="color:var(--orange)">Dairy</span> Products</h1>
+      <p class="dp-sub">Pure and natural our fresh milk and sour milk nourish families daily.</p>
+      <div class="dp-anchors">
+        <a href="#fresh-milk">Fresh Milk</a>
+        <a href="#sour-milk">Sour Milk</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FRESH MILK -->
+  <section id="fresh-milk" class="dp-section reveal">
+    <div class="dp-wrap reverse">
+      <div class="dp-media">
+        <img src="./assets/images/milk-splash2.png" alt="Fresh milk bottle">
+      </div>
+      <div class="dp-text">
+        <p class="dp-kicker">Pure & Creamy</p>
+        <h2 class="dp-h">Fresh Milk</h2>
+        <p class="dp-copy">
+          Collected at dawn and bottled immediately, our fresh milk is pure, creamy,
+          and naturally rich in nutrients.
+        </p>
+        <ul class="dp-bullets">
+          <li>Pasture-fed cows</li>
+          <li>Daily milking and immediate cooling</li>
+          <li>Bottled at source for maximum freshness</li>
+        </ul>
+        <a href="#sour-milk" class="btn btn-solid">See Sour Milk</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOUR MILK -->
+  <section id="sour-milk" class="dp-section alt reveal">
+    <div class="dp-wrap">
+      <div class="dp-text">
+        <p class="dp-kicker">Traditional & Nutritious</p>
+        <h2 class="dp-h">Sour Milk</h2>
+        <p class="dp-copy">
+          Fermented naturally, our sour milk is a healthy probiotic drink enjoyed across generations,
+          rich in flavor and nutrition.
+        </p>
+        <ul class="dp-bullets">
+          <li>Traditional fermentation</li>
+          <li>Probiotic-rich, great for digestion</li>
+          <li>Delivered cool and fresh</li>
+        </ul>
+        <a href="#fresh-milk" class="btn btn-outline" style="border-color:var(--green); color:var(--green)">Back to Fresh Milk</a>
+      </div>
+      <div class="dp-media">
+        <img src="./assets/images/sour-milk.jpg" alt="Sour milk in a jug">
+      </div>
+    </div>
+  </section>
+
+  <!-- Reveal script -->
+  <script>
+    const reveals = document.querySelectorAll(".reveal");
+    const onScroll = () => {
+      reveals.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 60) {
+          el.classList.add("visible");
+        }
+      });
+    };
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+  </script>
+</body>
+</html>

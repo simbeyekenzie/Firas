@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us — FIRAS Sunrise Farms</title>
+
+  <!-- Fonts + your global styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="global.css" />
+
+  <style>
+    :root{
+      --eggshell:#f7f4e8;
+      --mint:#e9f6ea;
+      --green:#0f4d3f;
+      --orange:#ff7a1a;
+      --txt:#111;
+      --muted:#5a5f66;
+      --shadow:0 12px 30px rgba(0,0,0,.10);
+    }
+
+    /* Transparent nav like main page */
+    .nav{
+      position:absolute; top:0; left:0; width:100%; z-index:50;
+      display:flex; justify-content:center; align-items:center;
+      background:transparent; padding:1rem 2rem; box-shadow:none;
+    }
+        /* Minimal header (logo centered) */
+        .nav{ position:sticky; top:0; z-index:40; display:flex; justify-content:center; align-items:center; background:transparent; padding:.9rem 1rem; box-shadow:0 2px 8px rgba(0,0,0,.05); }
+    .nav .logo img{ height:46px; display:block; }
+
+    /* ---------- HERO ---------- */
+    .about-hero{
+      position:relative; isolation:isolate; min-height:100vh;
+      display:grid; place-items:center; overflow:hidden;
+    }
+    .about-hero .bg{ position:absolute; inset:0; background:center/cover no-repeat; }
+    .about-hero .bg::after{
+      content:""; position:absolute; inset:0;
+      background:linear-gradient(rgba(15,77,63,.55), rgba(0,0,0,.35)); mix-blend-mode:multiply;
+    }
+    .about-hero .inner{
+      position:relative; z-index:1; color:#fff; text-align:center;
+      width:min(1100px,92%); padding: clamp(2rem,4vw,3rem) clamp(1rem,3vw,2rem);
+    }
+    .eyebrow{ margin:0 0 .35rem; letter-spacing:.06em; font-weight:700; color:#eaf8f0; }
+    .title{ margin:.1rem 0 .5rem; font-weight:800; text-transform:uppercase; font-size: clamp(2.2rem, 6vw, 3.2rem); }
+    .sub{ margin:0 auto 1.2rem; max-width:70ch; font-weight:600; color:#f2f2f2; }
+    .btn{ display:inline-block; text-decoration:none; border-radius:999px; padding:.85rem 1.4rem; font-weight:700; }
+    .btn-solid{ background:var(--orange); color:#fff; border:2px solid var(--orange); }
+    .btn-outline{ background:transparent; color:#fff; border:2px solid #fff; }
+
+    /* ---------- SECTION WRAPPERS ---------- */
+    .section{ padding: clamp(3rem,6vw,5rem) 1rem; }
+    .section.alt{ background:linear-gradient(180deg, var(--eggshell), var(--mint) 85%); }
+    .container{ max-width:1200px; margin:0 auto; padding:0 clamp(1rem,3vw,2rem); }
+    .section-title{ margin:0 0 .6rem; font-size:2rem; font-weight:800; color:#0b0b0b; }
+    .section-intro{ margin:0 auto 1.4rem; max-width:75ch; color:var(--txt); line-height:1.7; }
+
+    /* ---------- INTRODUCTION BLOCK ---------- */
+    .intro-grid{
+      display:grid; grid-template-columns: 1.1fr .9fr; gap:2rem; align-items:center;
+    }
+    .intro-media img{ width:100%; height:auto; display:block; object-fit:cover; box-shadow:var(--shadow); border-radius:0; }
+
+    /* ---------- MISSION & VALUES ---------- */
+    .mv-grid{
+      display:grid; grid-template-columns: repeat(3,1fr); gap:1rem; margin-top:1.5rem;
+    }
+    .mv-card{
+      background:#fff; padding:1.25rem; border:1px solid #eee; box-shadow:var(--shadow);
+    }
+    .mv-card h3{ margin:.1rem 0 .35rem; font-size:1.1rem; font-weight:800; color:#000; }
+    .mv-card p{ margin:0; color:#4a4f55; line-height:1.6; }
+
+    /* ---------- OUR STORY (TIMELINE) ---------- */
+    .timeline{ list-style:none; margin:1.2rem 0 0; padding:0; }
+    .timeline li{
+      display:grid; grid-template-columns: 140px 1fr; gap:1rem; align-items:start;
+      padding:1rem 0; border-top:1px solid #e8e8e8;
+    }
+    .timeline li:first-child{ border-top:0; }
+    .t-year{ font-weight:800; color:var(--green); }
+    .t-text{ color:var(--txt); }
+
+    /* ---------- LEADERSHIP ---------- */
+    .people-grid{
+      display:grid; grid-template-columns: repeat(3,1fr); gap:1rem; margin-top:1.2rem;
+    }
+    .person{
+      background:#fff; border:1px solid #eee; box-shadow:var(--shadow); display:grid;
+      grid-template-rows: auto auto 1fr; padding:0;
+    }
+    .person img{ width:100%; height:220px; object-fit:cover; display:block; border-radius:0; }
+    .person .p-body{ padding:1rem; }
+    .person h3{ margin:.25rem 0 .25rem; font-size:1.05rem; font-weight:800; }
+    .person .role{ margin:0 0 .5rem; color:#9aa1a9; font-weight:700; letter-spacing:.05em; }
+    .person p{ margin:0; color:#4a4f55; line-height:1.6; }
+
+    /* ---------- CLIENTS ---------- */
+    .logos{
+      display:grid; grid-template-columns: repeat(4,1fr); gap:1rem; align-items:center;
+      margin-top:1rem;
+    }
+    .logos img{ width:100%; height:90px; object-fit:contain; filter:contrast(.95) saturate(.9); }
+
+    /* ---------- CTA ---------- */
+    .cta{
+      text-align:center; background:#fff; padding: clamp(3rem,6vw,5rem) 1rem;
+    }
+    .cta .container{ max-width:800px; }
+    .cta h2{ margin:0 0 .5rem; font-size:2rem; font-weight:800; }
+    .cta p{ margin:0 0 1.1rem; color:var(--txt); font-size: 18px; }
+
+    /* Reveal / Fade-in */
+    .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; will-change:opacity,transform; }
+    .reveal.is-visible{ opacity:1; transform:translateY(0); }
+    .reveal-stagger > *{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+    .reveal-stagger.is-visible > *{ opacity:1; transform:translateY(0); }
+    .reveal-stagger.is-visible > *:nth-child(1){ transition-delay:.05s; }
+    .reveal-stagger.is-visible > *:nth-child(2){ transition-delay:.12s; }
+    .reveal-stagger.is-visible > *:nth-child(3){ transition-delay:.19s; }
+    .reveal-stagger.is-visible > *:nth-child(4){ transition-delay:.26s; }
+    .reveal-stagger.is-visible > *:nth-child(5){ transition-delay:.33s; }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .intro-grid{ grid-template-columns:1fr; }
+      .mv-grid{ grid-template-columns:1fr 1fr; }
+      .people-grid{ grid-template-columns:1fr 1fr; }
+      .logos{ grid-template-columns:1fr 1fr; }
+          /* Minimal header (logo centered) */
+    .nav{ position:sticky; top:0; z-index:40; display:flex; justify-content:center; align-items:center; background:transparent; padding:.9rem 1rem; box-shadow:0 2px 8px rgba(0,0,0,.05); }
+    .nav .logo img{ height:46px; display:block; }
+    }
+    @media (max-width: 640px){
+      .about-hero .inner{ padding-left:4rem; padding-right:4rem; } /* your mobile padding pattern */
+      .mv-grid{ grid-template-columns:1fr; }
+      .people-grid{ grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Transparent Nav -->
+  <header class="nav reveal">
+    <a class="logo" href="index.html">
+      <img src="logo.PNG" alt="FIRAS Sunrise Farms Logo">
+    </a>
+  </header>
+
+  <!-- HERO -->
+  <section class="about-hero reveal">
+    <div class="bg" style="background-image:url('./assets/images/about-hero.jpg')"></div>
+    <div class="inner reveal-stagger">
+      <p class="eyebrow">FIRAS Sunrise Farms</p>
+      <h1 class="title"><span style="color:var(--orange)">About</span> Us</h1>
+      <p class="sub">Wholesome food grown with respect for land, animals, and people since 2009.</p>
+      <a href="#intro" class="btn btn-outline">Learn More</a>
+    </div>
+  </section>
+
+  <!-- INTRODUCTION -->
+  <section id="intro" class="section reveal">
+    <div class="container">
+      <h2 class="section-title">Introduction</h2>
+      <p class="section-intro">
+        FIRAS Sunrise Farms grows and delivers farm fresh poultry, vegetables, and dairy. We rise early,
+        harvest at dawn, and handle everything cleanly so families receive nutritious food at its peak.
+      </p>
+      <div class="intro-grid">
+        <div class="intro-text">
+          <p>
+            What began as a small effort has grown into a dependable food partner for homes and businesses.
+            We focus on careful animal welfare, healthy soils, and hygienic handling from farm to pack.
+          </p>
+          <p>
+            Today we operate across poultry, vegetable, and dairy lines, with fast, same day delivery across our community.
+          </p>
+        </div>
+        <div class="intro-media">
+          <img src="./assets/images/about-intro.jpg" alt="Farm scene at sunrise">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION & VALUES -->
+  <section class="section alt reveal">
+    <div class="container">
+      <h2 class="section-title">Mission & Values</h2>
+      <p class="section-intro">Clear purpose, consistent standards, and a promise to nourish families every day.</p>
+
+      <div class="mv-grid reveal-stagger">
+        <article class="mv-card">
+          <h3>Our Mission</h3>
+          <p>Deliver wholesome, fresh food, poultry, vegetables, and dairy, produced responsibly and delivered promptly.</p>
+        </article>
+        <article class="mv-card">
+          <h3>Quality</h3>
+          <p>Daily harvests and collections, careful sorting, and cold chain handling for safety and taste.</p>
+        </article>
+        <article class="mv-card">
+          <h3>Care</h3>
+          <p>Healthy birds, fertile soils, and clean facilities, we protect the land and respect our animals.</p>
+        </article>
+        <article class="mv-card">
+          <h3>Integrity</h3>
+          <p>Clear labeling, honest pricing, and reliable delivery that customers can trust.</p>
+        </article>
+        <article class="mv-card">
+          <h3>Community</h3>
+          <p>We support local households and businesses with consistent supply and responsive service.</p>
+        </article>
+        <article class="mv-card">
+          <h3>Safety</h3>
+          <p>Strict hygiene protocols from collection to packing and transport.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR STORY / TIMELINE -->
+  <section class="section reveal">
+    <div class="container">
+      <h2 class="section-title">Our Story</h2>
+      <p class="section-intro">From modest beginnings to a multi-line farm operation serving families every day.</p>
+
+      <ol class="timeline reveal-stagger">
+        <li>
+          <div class="t-year">2009</div>
+          <div class="t-text">Started small with sunrise harvests and a commitment to quality and care.</div>
+        </li>
+        <li>
+          <div class="t-year">2017</div>
+          <div class="t-text">Expanded operations across poultry and vegetables, improving handling and delivery.</div>
+        </li>
+        <li>
+          <div class="t-year">Today</div>
+          <div class="t-text">Added dairy, strengthened hygiene standards, and built a reliable distribution network.</div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section class="section alt reveal">
+    <div class="container">
+      <h2 class="section-title">Leadership</h2>
+      <p class="section-intro">A hands-on team focused on quality, consistency, and service.</p>
+
+      <div class="people-grid reveal-stagger">
+        <article class="person">
+          <img src="./assets/images/leader-1.jpg" alt="Leader 1">
+          <div class="p-body">
+            <h3>Chinyama Tembo</h3>
+            <p class="role">Director</p>
+            <p>Oversees operations, quality, and customer relationships across all product lines.</p>
+          </div>
+        </article>
+
+        <article class="person">
+          <img src="./assets/images/leader-2.jpg" alt="Leader 2">
+          <div class="p-body">
+            <h3>Christine Miyoba</h3>
+            <p class="role">Operations Lead</p>
+            <p>Coordinates daily harvests, collections, and hygienic handling from farm to pack.</p>
+          </div>
+        </article>
+
+        <article class="person">
+          <img src="./assets/images/leader-3.jpg" alt="Leader 3">
+          <div class="p-body">
+            <h3>Zibenji Moyo</h3>
+            <p class="role">Supply & Delivery</p>
+            <p>Manages cold-chain logistics and ensures on-time deliveries to homes and businesses.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENTS / PARTNERS -->
+  <section class="section reveal">
+    <div class="container">
+      <h2 class="section-title">Clients & Partners</h2>
+      <p class="section-intro">Trusted by retailers, producers, and community organizations.</p>
+
+      <div class="logos reveal-stagger">
+        <img src="./assets/images/partner-1.png" alt="Partner 1">
+        <img src="./assets/images/partner-2.png" alt="Partner 2">
+        <img src="./assets/images/partner-3.png" alt="Partner 3">
+        <img src="./assets/images/partner-4.png" alt="Partner 4">
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta reveal">
+    <div class="container">
+      <h2>Get in Touch</h2>
+      <p>Have a question or want to place an order? We’re ready to help.</p>
+      <a href="contact.html" class="btn btn-solid">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- Reveal on scroll -->
+  <script>
+    (() => {
+      const els = document.querySelectorAll('.reveal, .reveal-stagger');
+      if (!('IntersectionObserver' in window) || !els.length) return;
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+      els.forEach(el => io.observe(el));
+    })();
+  </script>
+</body>
+</html>

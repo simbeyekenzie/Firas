@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Poultry — FIRAS Sunrise Farms</title>
+
+  <!-- Fonts + your global styles (keep this) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="global.css" />
+
+  <style>
+    /* ===== Page-specific styles for Poultry Products ===== */
+
+    /* Use your palette hooks */
+    :root{
+      --eggshell:#f7f4e8;
+      --mint:#e9f6ea;
+      --green:#0f4d3f;
+      --orange:#ff7a1a;
+      --txt:#111;
+      --muted:#5a5f66;
+      --shadow:0 12px 30px rgba(0,0,0,.10);
+    }
+
+    /* Minimal header (logo centered) */
+    .nav{ position:sticky; top:0; z-index:40; display:flex; justify-content:center; align-items:center; background:transparent; padding:.9rem 1rem; box-shadow:0 2px 8px rgba(0,0,0,.05); }
+    .nav .logo img{ height:46px; display:block; }
+
+    /* ========== EDGE-TO-EDGE HERO ========== */
+    .pp-hero{
+      position:relative; isolation:isolate;
+      min-height: 100vh;
+      display:grid; place-items:center; overflow:hidden;
+      background: linear-gradient(180deg, #e8ecef 0%, #f6f7f8 40%, #ffffff 100%);
+      box-shadow: inset 0 60px 120px rgba(0,0,0,.06), inset 0 -60px 120px rgba(0,0,0,.05);
+    }
+    .pp-hero-bg{
+      position:absolute; inset:0;
+      background: center/cover no-repeat;
+    }
+    .pp-hero-bg::after{
+      content:""; position:absolute; inset:0;
+      background: linear-gradient(rgba(15,77,63,.55), rgba(0,0,0,.35));
+      mix-blend-mode: multiply;
+    }
+    .pp-hero-inner{
+      position:relative; z-index:1; color:#fff; text-align:center;
+      width:min(1100px,92%); padding: clamp(2rem,4vw,3rem) clamp(1rem,3vw,2rem);
+    }
+    .pp-eyebrow{ margin:0 0 .35rem; letter-spacing:.06em; font-weight:700; color:#eaf8f0; }
+    .pp-title{ margin:.1rem 0 .5rem; font-weight:800; text-transform:uppercase; font-size: clamp(2.2rem, 6vw, 3.2rem); }
+    .pp-sub{ margin:0 auto 1.1rem; max-width:70ch; font-weight:600; color:#f2f2f2; }
+    .btn{ display:inline-block; text-decoration:none; border-radius:999px; padding:.85rem 1.4rem; font-weight:700; }
+    .btn-solid{ background:var(--orange); color:#fff; border:2px solid var(--orange); }
+    .btn-outline{ background:transparent; color:#fff; border:2px solid #fff; }
+
+    /* ========== SECTIONS (Layers, Broilers, Eggs) ========== */
+    .pp-section{
+      padding: clamp(3rem, 6vw, 8rem) 1rem;
+      background:#fff; 
+    }
+    .pp-section.alt{
+      background: linear-gradient(180deg, var(--eggshell), var(--mint) 85%);
+    }
+    .pp-wrap{
+      max-width:1200px; margin:0 auto;
+      display:grid; grid-template-columns: 1.05fr .95fr;
+      gap: clamp(1.25rem, 3.5vw, 2rem); align-items:center;
+      padding-left: clamp(1rem, 3vw, 2rem);
+      padding-right: clamp(1rem, 3vw, 2rem);
+    }
+    .pp-wrap.reverse{ grid-template-columns: .95fr 1.05fr; }
+
+    .pp-media img{
+      width:100%; height:auto; display:block; object-fit:cover;
+      border-radius:0;
+    }
+
+    .pp-kicker{ margin:0 0 .25rem; font-weight:700; letter-spacing:.06em; color:#9aa1a9; }
+    .pp-h{
+      margin:.1rem 0 .5rem; font-weight:800; color:#0b0b0b;
+      font-size: clamp(1.8rem, 3.6vw, 2.4rem);
+    }
+    .pp-copy{ margin:0 0 1rem; color:var(--txt); line-height:1.7; }
+    .pp-bullets{ margin:.25rem 0 1.1rem; padding-left:1.1rem; color:#333; }
+    .pp-bullets li{ margin:.25rem 0; }
+
+    /* Anchors row */
+    .pp-anchors{
+      display:flex; gap:.6rem; flex-wrap:wrap; justify-content:center; margin-top:1rem;
+    }
+    .pp-anchors a{
+      text-decoration:none; font-weight:700; border-radius:999px; padding:.55rem 1rem; border:2px solid rgba(255,255,255,.85); color:#fff;
+    }
+    .pp-anchors a:hover{ background:#ffffff22; }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .pp-wrap, .pp-wrap.reverse{ grid-template-columns: 1fr; }
+      .pp-hero{ min-height:100vh; }
+    }
+    @media (max-width: 640px){
+      .pp-hero-inner{ padding-left:4rem; padding-right:4rem; } /* your mobile padding rule */
+    }
+
+    /* ===== Reveal / Fade-in ===== */
+    .reveal{
+      opacity:0; transform: translateY(16px);
+      transition: opacity .6s ease, transform .6s ease;
+      will-change: opacity, transform;
+    }
+    .reveal.is-visible{
+      opacity:1; transform: translateY(0);
+    }
+    .reveal-stagger > *{
+      opacity:0; transform: translateY(16px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal-stagger.is-visible > *{
+      opacity:1; transform: translateY(0);
+    }
+    .reveal-stagger.is-visible > *:nth-child(1){ transition-delay:.05s; }
+    .reveal-stagger.is-visible > *:nth-child(2){ transition-delay:.12s; }
+    .reveal-stagger.is-visible > *:nth-child(3){ transition-delay:.19s; }
+    .reveal-stagger.is-visible > *:nth-child(4){ transition-delay:.26s; }
+    .reveal-stagger.is-visible > *:nth-child(5){ transition-delay:.33s; }
+  </style>
+</head>
+<body>
+
+  <!-- Header (logo centered) -->
+  <header class="nav reveal">
+    <a class="logo" href="index.html">
+      <img src="logo.PNG" alt="FIRAS Sunrise Farms Logo">
+    </a>
+  </header>
+
+  <!-- ============ EDGE-TO-EDGE HERO ============ -->
+  <section class="pp-hero reveal">
+    <!-- swap to your poultry hero photo -->
+    <div class="pp-hero-bg" style="background-image:url('./assets/poultryproduct\ banner.JPG')"></div>
+
+    <div class="pp-hero-inner reveal-stagger">
+      <p class="pp-eyebrow">FIRAS Sunrise Farms</p>
+      <h1 class="pp-title"><span style="color:var(--orange)">Poultry</span> Products</h1>
+      <p class="pp-sub">Layers, broilers and eggs raised with care, collected at sunrise, delivered fresh.</p>
+
+      <div class="pp-anchors">
+        <a href="#layers">Layers</a>
+        <a href="#broilers">Broilers</a>
+        <a href="#eggs">Eggs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LAYERS ============ -->
+  <section id="layers" class="pp-section reveal">
+    <div class="pp-wrap reverse reveal-stagger">
+      <div class="pp-media">
+        <!-- Replace with your layers image (transparent PNG or photo) -->
+        <img src="./assets/layers.png" alt="Healthy layer hens">
+      </div>
+      <div class="pp-text">
+        <p class="pp-kicker">Daily Fresh Eggs</p>
+        <h2 class="pp-h">Layers</h2>
+        <p class="pp-copy">
+          Our layer hens thrive in clean, well-ventilated housing with balanced feed and constant access to water,
+          producing strong shelled, nutrient rich eggs every day.
+        </p>
+        <ul class="pp-bullets">
+          <li>Balanced nutrition for consistent laying</li>
+          <li>Clean nesting areas and gentle collection</li>
+          <li>Same-day sorting and dispatch</li>
+        </ul>
+        <a href="#eggs" class="btn btn-solid">See Our Eggs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BROILERS ============ -->
+  <section id="broilers" class="pp-section alt reveal">
+    <div class="pp-wrap reveal-stagger">
+      <div class="pp-text">
+        <p class="pp-kicker">Tender & Flavorful</p>
+        <h2 class="pp-h">Broilers</h2>
+        <p class="pp-copy">
+          Raised for quality meat with careful attention to stocking, hygiene and comfort. Our broilers are handled
+          humanely and processed under strict standards.
+        </p>
+        <ul class="pp-bullets">
+          <li>Comfortable housing and good airflow</li>
+          <li>Balanced feed and clean water</li>
+          <li>Handled with care from farm to pack</li>
+        </ul>
+        <a href="#layers" class="btn btn-outline" style="border-color:var(--green); color:var(--green)">Back to Layers</a>
+      </div>
+      <div class="pp-media">
+        <!-- Replace with your broilers image -->
+        <img src="./assets/broiler.png" alt="Healthy broiler chickens">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EGGS ============ -->
+  <section id="eggs" class="pp-section reveal">
+    <div class="pp-wrap reverse reveal-stagger">
+      <div class="pp-media">
+        <!-- Replace with your eggs image -->
+        <img src="./assets/poultryeggs.png" alt="Farm fresh eggs">
+      </div>
+      <div class="pp-text">
+        <p class="pp-kicker">Collected at Sunrise</p>
+        <h2 class="pp-h">Eggs</h2>
+        <p class="pp-copy">
+          Collected every morning, carefully sorted and packed for freshness. Strong shells, rich yolks, and a clean,
+          consistent taste your family can trust.
+        </p>
+        <ul class="pp-bullets">
+          <li>Daily collection and quality checks</li>
+          <li>Hygienic handling and packing</li>
+          <li>Fast delivery for peak freshness</li>
+        </ul>
+        <a href="#broilers" class="btn btn-solid">Explore Broilers</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fade-in on scroll (IntersectionObserver) -->
+  <script>
+    (() => {
+      const els = document.querySelectorAll('.reveal, .reveal-stagger');
+      if (!('IntersectionObserver' in window) || !els.length) return;
+
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target); // reveal once
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+
+      els.forEach(el => io.observe(el));
+    })();
+  </script>
+</body>
+</html>

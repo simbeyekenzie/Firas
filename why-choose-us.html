@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Why Choose Us — FIRAS Sunrise Farms</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --green:#0f4d3f; --orange:#ff7a1a; --eggshell:#f7f4e8;
+    --txt:#111; --muted:#5a5f66;
+    --shadow:0 12px 30px rgba(0,0,0,.10);
+    --wrap: min(1200px, 92vw);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--txt);}
+
+ /* Sticky logo */
+.logo-fixed{
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1000;
+}
+.logo-fixed img{
+  height: 46px;
+  width: auto;
+  display: block;
+}
+
+/* Top links (non-sticky) */
+.top-links{
+  position: absolute;
+  top: 18px;
+  left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  z-index: 5;
+}
+.top-links a{
+  font: 700 0.95rem "Poppins", sans-serif;
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.top-links a:hover{ opacity: 0.8; }
+
+/* Hamburger toggle */
+.menu-toggle{
+  display: none;
+  position: fixed;
+  top: 18px;
+  right: 16px;
+  font-size: 26px;
+  background: transparent;
+  border: none;
+  color: var(--orange);
+  z-index: 1001;
+  cursor: pointer;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 780px){
+  .menu-toggle{ display: block; }
+
+  .top-links{
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 77, 63, 0.98);
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: 1.5rem;
+    opacity: 1;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .blur-overlay{
+    position: fixed; inset: 0; backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.35);
+    z-index: 900;
+  }
+
+  .top-links.open{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .top-links a{
+    font-size: 1.2rem;
+    color: var(--orange);
+  }
+}
+
+.icon-btn{
+  border:0; background:transparent; padding:.5rem; cursor:pointer;
+}
+.icon-btn svg{width:22px; height:22px; fill:var(--black);}
+/* Nav - white with logo on left */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+
+  background:
+    linear-gradient( to bottom, rgba(255,255,255,0.22), rgba(255,255,255,0.10) );
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border-bottom: 1px solid rgba(255,255,255,0.35);
+  box-shadow: 0 6px 24px rgba(15,23,42,0.06);
+}
+
+/* Logo image sizing */
+.logo {
+  display: inline-flex;
+  align-items: center;
+}
+.logo img{
+  height: 46px;                  /* tweak size */
+  width: auto;
+  display: block;
+}
+.nav-actions{display:flex; gap:.5rem;}
+.nav-links{display:none;}
+@media(min-width:992px){
+  .nav{grid-template-columns:auto 1fr auto auto;}
+  .nav-links{display:flex; gap:1.2rem; margin-left:1rem;}
+  .nav-links a{text-decoration:none; color:var(--black); font-weight:600;}
+  .nav-links a:hover{color:var(--green);}
+}
+  /* edge hero exactly full-bleed */
+  .hero{
+  position:relative;
+  min-height:100vh;
+  min-height:100dvh;
+  display:grid;
+  place-items:center;
+  isolation:isolate;
+}
+  .hero::before{content:"";position:absolute;inset:0;background:url('./assets/why-hero.JPG') center/cover no-repeat;}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,77,63,.55),rgba(0,0,0,.35));}
+  .hero-inner{position:relative;z-index:1;color:#fff;text-align:center;width:var(--wrap);padding:3rem 1rem}
+  .eyebrow{letter-spacing:.06em;font-weight:700;color:#eaf8f0;margin:0 0 .4rem}
+  h1{margin:.2rem 0 .6rem;font-weight:800;font-size:clamp(2.2rem,6vw,3.2rem)}
+  .sub{max-width:70ch;margin:0 auto 1.2rem;font-weight:600;color:#f2f2f2}
+  .btn{display:inline-block;padding:.85rem 1.4rem;border-radius:999px;font-weight:700;text-decoration:none}
+  .btn-solid{background:var(--orange);color:#fff;border:2px solid var(--orange)}
+
+  /* SECTION ROWS — match the reference layout */
+  .section{padding:0;background:#fff}
+  .row{
+    display:grid;grid-template-columns:1fr 1fr;min-height:520px;
+  }
+  .row + .row{border-top:1px solid #f0f0f0}
+  .row .media{
+    background:#ddd center/cover no-repeat; /* set with style="--img:url(...)" */
+    background-image:var(--img);
+  }
+  .row .text{
+    display:flex;align-items:center;justify-content:center;padding:clamp(2rem,4vw,3rem);
+  }
+  .text-inner{width:var(--wrap);max-width:560px;margin:0 auto;}
+  .row.flip .media{order:2}
+  .row.flip .text{order:1}
+
+  .kicker{margin:0 0 .25rem;font-weight:700;letter-spacing:.06em;color:#9aa1a9}
+  .h2{margin:.1rem 0 .6rem;font-weight:800;font-size:clamp(1.8rem,3.6vw,2.4rem)}
+  .lead{margin:0 0 1.1rem;line-height:1.7;color:#222}
+
+  /* Expanded bullet points */
+  .bullets{list-style:none;margin:0;padding:0;display:grid;gap:.8rem}
+  .bullet{
+    display:grid;grid-template-columns:auto 1fr;align-items:start;gap:.75rem;
+  }
+  .dot{
+    width:.85rem;height:.85rem;border-radius:50%;background:var(--orange);margin-top:.45rem;
+  }
+  .bullet strong{font-weight:800}
+  .bullet span{display:block;color:#4a4f55;line-height:1.55;margin-top:.15rem}
+
+  /* alt background row (soft like the mock) */
+  .row.pale .text{background:linear-gradient(180deg,var(--eggshell),#fff 85%);}
+
+
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background: var(--eggshell);
+  color: var(--black);
+  padding: 3rem 2rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+
+.footer-top{
+  text-align:center;
+  margin-bottom:1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-logo{
+  height: 200px;     
+  max-width:200px;
+  justify-content: center;
+}
+
+.footer-col h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--orange); 
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col ul li a {
+  color: var(--black);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: var(--orange);
+}
+
+.social-links a {
+  display: inline-block;
+  margin-right: 1rem;
+  font-size: 1.3rem;
+  color: var(--black);
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ffb400;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.newsletter-form input {
+  padding: 0.7rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.newsletter-form button {
+  padding: 0.7rem;
+  border: none;
+  border-radius: 4px;
+  background: var(--orange);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background: #0f4d3f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .social-links {
+    justify-content: center;
+  }
+}
+
+
+.footer-bottom.zigzag{
+  --c:#135c4b;
+  background:var(--c);
+  color:#fff;
+  text-align:center;
+  padding:1rem;
+  position:relative;
+  font-weight:600;
+}
+
+
+
+  @media (max-width: 980px){
+    .row{grid-template-columns:1fr;min-height:unset}
+    .row .media{height:46vh}
+    .row.flip .media{order:0}
+    .hero-inner{padding-left:4rem;padding-right:4rem}
+    .hero {
+  min-height: 100vh;  /* fills the screen height */
+}
+  }
+</style>
+</head>
+<body>
+
+ <!-- Sticky Logo -->
+ <a class="logo-fixed" href="index.html" aria-label="FIRAS Sunrise Farms">
+  <img src="./assets/logo.PNG" alt="FIRAS Sunrise Farms logo">
+</a>
+
+<!-- Hamburger Button (mobile only) -->
+<button class="menu-toggle" aria-label="Open menu">
+  ☰
+</button>
+
+<!-- Non-sticky Nav Links -->
+<nav class="top-links" aria-label="Primary">
+  <a href="./about-us.html">About Us</a>
+  <a href="how-we-farm.html">How We Farm</a>
+  <a href="./why-choose-us.html">Why Choose Us?</a>
+  <a href="./vegetables-products.html">Vegetables</a>
+  <a href="./poultry-products.html">Poultry</a>
+  <a href="./dairy-products.html">Dairy</a>
+</nav>
+
+
+<!-- ============ EDGE-TO-EDGE HERO ============ -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">FIRAS Sunrise Farms</p>
+    <h1>Why Choose Us?</h1>
+    <p class="sub">Freshness, hygiene and reliable delivery you can trust every single day.</p>
+    <a class="btn btn-solid" href="products.html">Our Marketplace</a>
+  </div>
+</section>
+
+<!-- Row 1 -->
+<section class="section">
+  <div class="row flip">
+    <div class="media" style="--img:url('./assets/images/fresh-eggs-crate.jpg')"></div>
+    <div class="text">
+      <div class="text-inner">
+        <p class="kicker">Farm-Fresh Daily</p>
+        <h2 class="h2">Collected & Packed the Same Day</h2>
+        <p class="lead">We harvest at sunrise and keep handling swift and clean so your food arrives in peak condition.</p>
+
+        <ul class="bullets">
+          <li class="bullet">
+            <div class="dot"></div>
+            <div><strong>Daily Collection</strong><span>Eggs and vegetables are picked and gathered every morning.</span></div>
+          </li>
+          <li class="bullet">
+            <div class="dot"></div>
+            <div><strong>Quality Checks</strong><span>Grading and sorting ensure consistent shells, size and freshness.</span></div>
+          </li>
+          <li class="bullet">
+            <div class="dot"></div>
+            <div><strong>Speedy Dispatch</strong><span>Orders leave the farm the same day to keep flavor locked in.</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2 -->
+  <div class="row pale">
+    <div class="media" style="--img:url('./assets/images/hygiene.jpg')"></div>
+    <div class="text">
+      <div class="text-inner">
+        <p class="kicker">Clean & Hygienic</p>
+        <h2 class="h2">Safe Handling, Great Taste</h2>
+        <p class="lead">Biosecurity and temperature control from milking to packing to delivery.</p>
+
+        <ul class="bullets">
+          <li class="bullet"><div class="dot"></div>
+            <div><strong>Sanitized Workflows</strong><span>Regular washdowns and food-safe surfaces protect quality.</span></div>
+          </li>
+          <li class="bullet"><div class="dot"></div>
+            <div><strong>Cold Chain</strong><span>Dairy and eggs are kept cool end-to-end for safety and taste.</span></div>
+          </li>
+          <li class="bullet"><div class="dot"></div>
+            <div><strong>Traceability</strong><span>Lots are labeled so we can track every step from field to basket.</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 3 -->
+  <div class="row flip">
+    <div class="media" style="--img:url('./assets/images/delivery.jpg')"></div>
+    <div class="text">
+      <div class="text-inner">
+        <p class="kicker">Fast Delivery</p>
+        <h2 class="h2">Reliable Routes, Right on Time</h2>
+        <p class="lead">Local distribution keeps transit short so everything arrives fresh.</p>
+
+        <ul class="bullets">
+          <li class="bullet"><div class="dot"></div>
+            <div><strong>Predictable Schedules</strong><span>Regular delivery windows you can plan your day around.</span></div>
+          </li>
+          <li class="bullet"><div class="dot"></div>
+            <div><strong>Careful Loading</strong><span>Secure, clean crates and coolers prevent damage and heat.</span></div>
+          </li>
+          <li class="bullet"><div class="dot"></div>
+            <div><strong>Service Hotline</strong><span>Quick responses if you need urgency or special handling.</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer reveal">
+  <div class="footer-container  reveal-stagger">
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#farming">How We Farm</a></li>
+        <li><a href="#why-us">Why Choose Us</a></li>
+        <li><a href="#vegetables">Vegetables</a></li>
+        <li><a href="#poultry">Poultry</a></li>
+        <li><a href="#dairy">Dairy</a></li>
+      </ul>
+    </div>
+
+    <!-- Social + Intro -->
+    <div class="footer-col reveal-stagger">
+      <p>
+        Fresh from the sunrise to your table. We deliver poultry, vegetables, and dairy with care and quality you can trust.
+      </p>
+      <h3>Connect with us:</h3>
+      <div class="social-links">
+        <!-- Facebook -->
+        <a href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+            <path d="M22 12.06C22 6.48 17.52 2 11.94 2S2 6.48 2 12.06c0 5.02 3.66 9.19 8.44 9.94v-7.03H7.9v-2.9h2.54V9.41c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.55v1.86h2.78l-.44 2.9h-2.34V22c4.78-.75 8.44-4.92 8.44-9.94Z"/>
+          </svg>
+        </a>
+      
+        <!-- WhatsApp -->
+        <a href="#" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+            <path d="M20.52 3.48A11.94 11.94 0 0 0 12.01 0C5.39 0 .03 5.36.03 11.98c0 2.11.55 4.16 1.6 5.98L0 24l6.22-1.62a12.01 12.01 0 0 0 5.79 1.48h.01c6.62 0 11.98-5.36 11.98-11.98 0-3.2-1.25-6.2-3.48-8.4Zm-8.51 18.2a9.94 9.94 0 0 1-5.06-1.39l-.36-.21-3.69.96.99-3.6-.24-.37A9.96 9.96 0 1 1 12 21.68Zm5.67-7.43c-.31-.16-1.83-.9-2.11-1-.28-.11-.48-.16-.68.16-.2.31-.78 1-.95 1.2-.17.2-.35.22-.66.06-.31-.16-1.31-.48-2.5-1.53-.92-.82-1.54-1.83-1.71-2.14-.18-.31-.02-.48.14-.63.14-.14.31-.35.47-.53.16-.18.2-.31.31-.52.1-.2.05-.39-.03-.55-.08-.16-.68-1.64-.93-2.26-.24-.58-.49-.5-.68-.51l-.58-.01c-.2 0-.52.07-.79.39-.27.31-1.04 1.02-1.04 2.47 0 1.45 1.07 2.85 1.22 3.05.15.2 2.1 3.2 5.09 4.48.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.83-.75 2.09-1.47.26-.72.26-1.34.18-1.47-.08-.12-.28-.2-.59-.36Z"/>
+          </svg>
+        </a>
+      
+        <!-- X / Twitter -->
+        <a href="#" aria-label="X">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+            <path d="M18.244 2H21L14.5 9.38 22 22h-6.5l-4.79-7.63L4.9 22H2l6.94-7.96L2 2h6.62l4.39 6.98L18.244 2Zm-1.14 18h2.09L8.11 4H5.93l11.174 16Z"/>
+          </svg>
+        </a>
+      
+        <!-- Instagram -->
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.2c3.2 0 3.58.01 4.84.07 1.17.05 1.96.24 2.66.52.72.28 1.33.66 1.93 1.26.6.6.98 1.21 1.26 1.93.28.7.47 1.49.52 2.66.06 1.26.07 1.64.07 4.84s-.01 3.58-.07 4.84c-.05 1.17-.24 1.96-.52 2.66a5.34 5.34 0 0 1-1.26 1.93 5.34 5.34 0 0 1-1.93 1.26c-.7.28-1.49.47-2.66.52-1.26.06-1.64.07-4.84.07s-3.58-.01-4.84-.07c-1.17-.05-1.96-.24-2.66-.52a5.34 5.34 0 0 1-1.93-1.26 5.34 5.34 0 0 1-1.26-1.93c-.28-.7-.47-1.49-.52-2.66C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.84c.05-1.17.24-1.96.52-2.66.28-.72.66-1.33 1.26-1.93.6-.6 1.21-.98 1.93-1.26.7-.28 1.49-.47 2.66-.52C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.52.01-4.76.07-.98.05-1.52.21-1.87.35-.47.18-.81.39-1.17.75-.36.36-.57.7-.75 1.17-.14.35-.3.89-.35 1.87-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05.98.21 1.52.35 1.87.18.47.39.81.75 1.17.36.36.7.57 1.17.75.35.14.89.3 1.87.35 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c.98-.05 1.52-.21 1.87-.35.47-.18.81-.39 1.17-.75.36-.36.57-.7.75-1.17.14-.35.3-.89.35-1.87.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-.98-.21-1.52-.35-1.87a3.15 3.15 0 0 0-.75-1.17 3.15 3.15 0 0 0-1.17-.75c-.35-.14-.89-.3-1.87-.35-1.24-.06-1.61-.07-4.76-.07Zm0 3.6a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8Zm6.2-.9a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/>
+          </svg>
+        </a>
+      
+        <!-- Email -->
+        <a href="mailto:info@firasfarms.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+            <path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6Zm2-.5 8 6 8-6H4Zm16 13.5V8.25l-8 6-8-6V19h16Z"/>
+          </svg>
+        </a>
+
+        <!-- Phone -->
+         <a href="tel:+260123456789" aria-label="Call Us">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+             <path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.05-.24c1.12.37 2.33.57 3.54.57a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1C10.07 22 2 13.93 2 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.21.2 2.42.57 3.54a1 1 0 0 1-.25 1.05l-2.2 2.2Z"/>
+          </svg>
+         </a>
+
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-col reveal-stagger">
+      <h3>Join The Newsletter</h3>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Email" required>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  
+
+</footer>
+
+
+<div class="footer-bottom zigzag reveal">
+  © 2025 FIRAS Sunrise Farms. All rights reserved.
+</div>
+
+
+
+</body>
+</html>
+<!-- Fade-in on scroll (IntersectionObserver) -->
+<script>
+  (() => {
+    const els = document.querySelectorAll('.reveal, .reveal-stagger');
+    if (!('IntersectionObserver' in window) || !els.length) return;
+
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target); // reveal once
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+
+    els.forEach(el => io.observe(el));
+  })();
+
+  // Mobile menu toggle
+  // Toggle mobile menu
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.top-links');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+
+</script>
+</body>
+</html>
