@@ -7,191 +7,137 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-  :root{
-    --green:#0f4d3f; --orange:#ff7a1a; --eggshell:#f7f4e8;
-    --txt:#111; --muted:#5a5f66;
-    --shadow:0 12px 30px rgba(0,0,0,.10);
-    --wrap: min(1200px, 92vw);
-  }
-  *{box-sizing:border-box}
-  body{margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--txt);}
+:root{
+  --green:#0f4d3f;
+  --orange:#ff7a1a;
+  --eggshell:#f7f4e8;
+  --txt:#111;
+  --muted:#5a5f66;
+  --shadow:0 12px 30px rgba(0,0,0,.10);
+  --wrap:min(1200px,92vw);
+  /* pull sticky logo & hamburger a bit INSIDE the edges */
+  --edge-pad: clamp(28px, 5vw, 48px);
+}
 
- /* Sticky logo */
+/* Base */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--txt);background:#fff;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+
+/* Sticky logo (only the logo is sticky) */
 .logo-fixed{
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  z-index: 1000;
+  position:fixed;
+  top:clamp(20px,3.2vw,30px);
+  left:var(--edge-pad);
+  z-index:1100;
 }
 .logo-fixed img{
-  height: 46px;
-  width: auto;
-  display: block;
+  height:50px;width:auto;
+  filter:drop-shadow(0 2px 6px rgba(0,0,0,.25));
 }
 
-/* Top links (non-sticky) */
+/* Top nav links (non-sticky, centered) */
 .top-links{
-  position: absolute;
-  top: 18px;
-  left: 0; right: 0;
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-  z-index: 5;
+  position:absolute;
+  top:clamp(22px,3.4vw,32px);
+  left:0; right:0;
+  display:flex; justify-content:center; gap:28px;
+  z-index:100;
+  margin-top: 4rem;
 }
 .top-links a{
-  font: 700 0.95rem "Poppins", sans-serif;
-  color: white;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
+  font-weight:700; font-size:.95rem;
+  color:#fff; text-decoration:none; transition:opacity .2s ease;
 }
-.top-links a:hover{ opacity: 0.8; }
+.top-links a:hover{ opacity:.8 }
 
-/* Hamburger toggle */
+/* Hamburger (right, drawn inward) */
 .menu-toggle{
-  display: none;
-  position: fixed;
-  top: 18px;
-  right: 16px;
-  font-size: 26px;
-  background: transparent;
-  border: none;
-  color: var(--orange);
-  z-index: 1001;
-  cursor: pointer;
+  display:none; position:fixed;
+  top:clamp(20px,3.2vw,30px);
+  right:var(--edge-pad);
+  width:28px; height:22px; background:transparent; border:none; cursor:pointer; z-index:1101;
 }
+.menu-toggle .bar{height:3px;width:100%;background:#fff;border-radius:2px;transition:.3s}
+.menu-toggle .bar+.bar{margin-top:5px}
+.menu-toggle.active .bar:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active .bar:nth-child(2){opacity:0}
+.menu-toggle.active .bar:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 
-/* ---------- Mobile ---------- */
-@media (max-width: 780px){
-  .menu-toggle{ display: block; }
-
+/* Mobile menu */
+@media (max-width:780px){
+  .menu-toggle{display:flex;flex-direction:column;justify-content:center}
   .top-links{
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(15, 77, 63, 0.98);
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    gap: 1.5rem;
-    opacity: 1;
-    visibility: hidden;
-    transform: translateY(-20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    position:fixed; inset:0; background:rgba(15,77,63,.98);
+    flex-direction:column; gap:1.25rem;
+    opacity:0; visibility:hidden; transform:translateY(-8px);
+    transition:opacity .3s ease, transform .3s ease, visibility .3s;
+    padding:6rem 2rem;
   }
-
-  .blur-overlay{
-    position: fixed; inset: 0; backdrop-filter: blur(8px);
-    background: rgba(255,255,255,0.35);
-    z-index: 900;
-  }
-
-  .top-links.open{
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-  .top-links a{
-    font-size: 1.2rem;
-    color: var(--orange);
-  }
+  .top-links.open{opacity:1; visibility:visible; transform:none}
+  .top-links a{color:var(--orange); font-size:1.1rem}
+  body.menu-open{overflow:hidden}
 }
 
-.icon-btn{
-  border:0; background:transparent; padding:.5rem; cursor:pointer;
+/* ===== HERO (edge-to-edge with overlay) ===== */
+.hero{
+  position:relative; min-height:100vh; min-height:100dvh;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; overflow:hidden; isolation:isolate;
 }
-.icon-btn svg{width:22px; height:22px; fill:var(--black);}
-/* Nav - white with logo on left */
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  height: auto;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 30px;
-
-  background:
-    linear-gradient( to bottom, rgba(255,255,255,0.22), rgba(255,255,255,0.10) );
-  backdrop-filter: blur(14px) saturate(160%);
-  -webkit-backdrop-filter: blur(14px) saturate(160%);
-  border-bottom: 1px solid rgba(255,255,255,0.35);
-  box-shadow: 0 6px 24px rgba(15,23,42,0.06);
+.hero img{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center; transform:translateZ(0);
 }
-
-/* Logo image sizing */
-.logo {
-  display: inline-flex;
-  align-items: center;
+.hero::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(15,77,63,.55), rgba(0,0,0,.35)); z-index:1;
 }
-.logo img{
-  height: 46px;                  /* tweak size */
-  width: auto;
-  display: block;
+.hero-inner{
+  position:relative; z-index:2; color:#fff; width:var(--wrap); padding:3rem 1rem;
 }
-.nav-actions{display:flex; gap:.5rem;}
-.nav-links{display:none;}
-@media(min-width:992px){
-  .nav{grid-template-columns:auto 1fr auto auto;}
-  .nav-links{display:flex; gap:1.2rem; margin-left:1rem;}
-  .nav-links a{text-decoration:none; color:var(--black); font-weight:600;}
-  .nav-links a:hover{color:var(--green);}
+.eyebrow{font-weight:700; letter-spacing:.06em; color:#eaf8f0; margin:0 0 .4rem}
+h1{font-weight:800; font-size:clamp(2.2rem,6vw,3.2rem); margin:.2rem 0 .6rem}
+.sub{font-weight:600; color:#f2f2f2; max-width:70ch; margin:0 auto 1.2rem}
+.btn{display:inline-block; padding:.85rem 1.4rem; border-radius:999px; font-weight:700; text-decoration:none}
+.btn-solid{background:var(--orange); color:#fff; border:2px solid var(--orange)}
+
+/* ===== SECTIONS (alternating image/text rows) ===== */
+.section{padding:0; background:#fff}
+.row{
+  display:grid; grid-template-columns:1fr 1fr; min-height:520px;
 }
-  /* edge hero exactly full-bleed */
-  .hero{
-  position:relative;
-  min-height:100vh;
-  min-height:100dvh;
-  display:grid;
-  place-items:center;
-  isolation:isolate;
+.row + .row{border-top:1px solid #f0f0f0}
+.row .media{position:relative; overflow:hidden}   /* contain image, avoid overflow */
+.row .media img{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center;
 }
-  .hero::before{content:"";position:absolute;inset:0;background:url('./assets/why-hero.JPG') center/cover no-repeat;}
-  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,77,63,.55),rgba(0,0,0,.35));}
-  .hero-inner{position:relative;z-index:1;color:#fff;text-align:center;width:var(--wrap);padding:3rem 1rem}
-  .eyebrow{letter-spacing:.06em;font-weight:700;color:#eaf8f0;margin:0 0 .4rem}
-  h1{margin:.2rem 0 .6rem;font-weight:800;font-size:clamp(2.2rem,6vw,3.2rem)}
-  .sub{max-width:70ch;margin:0 auto 1.2rem;font-weight:600;color:#f2f2f2}
-  .btn{display:inline-block;padding:.85rem 1.4rem;border-radius:999px;font-weight:700;text-decoration:none}
-  .btn-solid{background:var(--orange);color:#fff;border:2px solid var(--orange)}
+.row .text{display:flex; align-items:center; justify-content:center; padding:clamp(2rem,4vw,3rem)}
+.text-inner{width:var(--wrap); max-width:560px; margin:0 auto}
+.row.flip .media{order:2}
+.row.flip .text{order:1}
+.row.pale .text{background:linear-gradient(180deg, var(--eggshell), #fff 85%)}
 
-  /* SECTION ROWS — match the reference layout */
-  .section{padding:0;background:#fff}
-  .row{
-    display:grid;grid-template-columns:1fr 1fr;min-height:520px;
-  }
-  .row + .row{border-top:1px solid #f0f0f0}
-  .row .media{
-    background:#ddd center/cover no-repeat; /* set with style="--img:url(...)" */
-    background-image:var(--img);
-  }
-  .row .text{
-    display:flex;align-items:center;justify-content:center;padding:clamp(2rem,4vw,3rem);
-  }
-  .text-inner{width:var(--wrap);max-width:560px;margin:0 auto;}
-  .row.flip .media{order:2}
-  .row.flip .text{order:1}
+/* Typography */
+.kicker{font-weight:700; color:#9aa1a9; margin:0 0 .25rem}
+.h2{font-weight:800; font-size:clamp(1.8rem,3.6vw,2.4rem); margin:.1rem 0 .6rem}
+.lead{color:#222; margin:0 0 1.1rem; line-height:1.7}
 
-  .kicker{margin:0 0 .25rem;font-weight:700;letter-spacing:.06em;color:#9aa1a9}
-  .h2{margin:.1rem 0 .6rem;font-weight:800;font-size:clamp(1.8rem,3.6vw,2.4rem)}
-  .lead{margin:0 0 1.1rem;line-height:1.7;color:#222}
+/* Bullets */
+.bullets{list-style:none; display:grid; gap:.8rem; padding:0; margin:0}
+.bullet{display:grid; grid-template-columns:auto 1fr; gap:.75rem}
+.dot{width:.85rem; height:.85rem; border-radius:50%; background:var(--orange); margin-top:.45rem}
+.bullet strong{font-weight:800}
+.bullet span{display:block; color:#4a4f55; line-height:1.55; margin-top:.15rem}
 
-  /* Expanded bullet points */
-  .bullets{list-style:none;margin:0;padding:0;display:grid;gap:.8rem}
-  .bullet{
-    display:grid;grid-template-columns:auto 1fr;align-items:start;gap:.75rem;
-  }
-  .dot{
-    width:.85rem;height:.85rem;border-radius:50%;background:var(--orange);margin-top:.45rem;
-  }
-  .bullet strong{font-weight:800}
-  .bullet span{display:block;color:#4a4f55;line-height:1.55;margin-top:.15rem}
-
-  /* alt background row (soft like the mock) */
-  .row.pale .text{background:linear-gradient(180deg,var(--eggshell),#fff 85%);}
-
+/* Reveal-on-scroll */
+.reveal{opacity:0; transform:translateY(28px); transition:opacity .6s ease, transform .6s ease}
+.reveal.is-visible{opacity:1; transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1; transform:none; transition:none}
+}
 
 
 /* ---------- Footer ---------- */
@@ -297,7 +243,8 @@
 @media (max-width: 768px) {
   .footer-container {
     grid-template-columns: 1fr;
-    text-align: center;
+    text-align: left;
+    justify-content: center;
   }
   .social-links {
     justify-content: center;
@@ -316,127 +263,113 @@
 }
 
 
-
-  @media (max-width: 980px){
-    .row{grid-template-columns:1fr;min-height:unset}
-    .row .media{height:46vh}
-    .row.flip .media{order:0}
-    .hero-inner{padding-left:4rem;padding-right:4rem}
-    .hero {
-  min-height: 100vh;  /* fills the screen height */
+/* Responsive rows */
+@media (max-width:980px){
+  .row{grid-template-columns:1fr}
+  .row .media{height:46vh}
+  .row.flip .media{order:0}
 }
-  }
 </style>
 </head>
 <body>
 
- <!-- Sticky Logo -->
- <a class="logo-fixed" href="index.html" aria-label="FIRAS Sunrise Farms">
+<!-- Sticky Logo (only this sticks) -->
+<a class="logo-fixed" href="index.html" aria-label="FIRAS Sunrise Farms">
+  <!-- swap to your logo path -->
   <img src="./assets/logo.PNG" alt="FIRAS Sunrise Farms logo">
 </a>
 
-<!-- Hamburger Button (mobile only) -->
-<button class="menu-toggle" aria-label="Open menu">
-  ☰
+<!-- Hamburger -->
+<button class="menu-toggle" id="menuBtn" aria-label="Open menu">
+  <span class="bar"></span><span class="bar"></span><span class="bar"></span>
 </button>
 
-<!-- Non-sticky Nav Links -->
-<nav class="top-links" aria-label="Primary">
-  <a href="./about-us.html">About Us</a>
+<!-- Non-sticky, centered nav links -->
+<nav class="top-links" id="topLinks" aria-label="Primary">
+  <a href="about-us.html">About Us</a>
   <a href="how-we-farm.html">How We Farm</a>
-  <a href="./why-choose-us.html">Why Choose Us?</a>
-  <a href="./vegetables-products.html">Vegetables</a>
-  <a href="./poultry-products.html">Poultry</a>
-  <a href="./dairy-products.html">Dairy</a>
+  <a href="vegetables-products.html">Vegetables</a>
+  <a href="poultry-products.html">Poultry</a>
+  <a href="dairy-products.html">Dairy</a>
 </nav>
 
-
-<!-- ============ EDGE-TO-EDGE HERO ============ -->
+<!-- ===== HERO (edge-to-edge image) ===== -->
 <section class="hero">
-  <div class="hero-inner">
+  <!-- swap to your hero image -->
+  <img src="./assets/firas-hero.png" alt="Farm sunrise with fields and crates ready for delivery">
+  <div class="hero-inner reveal">
     <p class="eyebrow">FIRAS Sunrise Farms</p>
     <h1>Why Choose Us?</h1>
     <p class="sub">Freshness, hygiene and reliable delivery you can trust every single day.</p>
-    <a class="btn btn-solid" href="products.html">Our Marketplace</a>
+    <a href="products.html" class="btn btn-solid">Our Marketplace</a>
   </div>
 </section>
 
-<!-- Row 1 -->
+<!-- ===== CONTENT ROWS ===== -->
 <section class="section">
-  <div class="row flip">
-    <div class="media" style="--img:url('./assets/images/fresh-eggs-crate.jpg')"></div>
+  <!-- Row 1 -->
+  <div class="row flip reveal">
+    <div class="media">
+      <!-- swap image -->
+      <img src="./assets/firas-hero.png" alt="Fresh eggs packed in clean crates">
+    </div>
     <div class="text">
       <div class="text-inner">
         <p class="kicker">Farm-Fresh Daily</p>
         <h2 class="h2">Collected & Packed the Same Day</h2>
         <p class="lead">We harvest at sunrise and keep handling swift and clean so your food arrives in peak condition.</p>
-
         <ul class="bullets">
-          <li class="bullet">
-            <div class="dot"></div>
-            <div><strong>Daily Collection</strong><span>Eggs and vegetables are picked and gathered every morning.</span></div>
-          </li>
-          <li class="bullet">
-            <div class="dot"></div>
-            <div><strong>Quality Checks</strong><span>Grading and sorting ensure consistent shells, size and freshness.</span></div>
-          </li>
-          <li class="bullet">
-            <div class="dot"></div>
-            <div><strong>Speedy Dispatch</strong><span>Orders leave the farm the same day to keep flavor locked in.</span></div>
-          </li>
+          <li class="bullet"><div class="dot"></div><div><strong>Daily Collection</strong><span>Eggs and vegetables are gathered every morning.</span></div></li>
+          <li class="bullet"><div class="dot"></div><div><strong>Quality Checks</strong><span>Grading ensures consistent shells and freshness.</span></div></li>
+          <li class="bullet"><div class="dot"></div><div><strong>Speedy Dispatch</strong><span>Orders leave the farm the same day to keep flavor locked in.</span></div></li>
         </ul>
       </div>
     </div>
   </div>
 
   <!-- Row 2 -->
-  <div class="row pale">
-    <div class="media" style="--img:url('./assets/images/hygiene.jpg')"></div>
+  <div class="row pale reveal">
+    <div class="media">
+      <!-- swap image -->
+      <img src="./assets/images/hygiene.jpg" alt="Hygienic food handling with gloves and sanitized tables">
+    </div>
     <div class="text">
       <div class="text-inner">
         <p class="kicker">Clean & Hygienic</p>
         <h2 class="h2">Safe Handling, Great Taste</h2>
         <p class="lead">Biosecurity and temperature control from milking to packing to delivery.</p>
-
         <ul class="bullets">
-          <li class="bullet"><div class="dot"></div>
-            <div><strong>Sanitized Workflows</strong><span>Regular washdowns and food-safe surfaces protect quality.</span></div>
-          </li>
-          <li class="bullet"><div class="dot"></div>
-            <div><strong>Cold Chain</strong><span>Dairy and eggs are kept cool end-to-end for safety and taste.</span></div>
-          </li>
-          <li class="bullet"><div class="dot"></div>
-            <div><strong>Traceability</strong><span>Lots are labeled so we can track every step from field to basket.</span></div>
-          </li>
+          <li class="bullet"><div class="dot"></div><div><strong>Sanitized Workflows</strong><span>Regular washdowns and food-safe surfaces protect quality.</span></div></li>
+          <li class="bullet"><div class="dot"></div><div><strong>Cold Chain</strong><span>Dairy and eggs are kept cool for safety and taste.</span></div></li>
+          <li class="bullet"><div class="dot"></div><div><strong>Traceability</strong><span>We can track every step from field to basket.</span></div></li>
         </ul>
       </div>
     </div>
   </div>
 
   <!-- Row 3 -->
-  <div class="row flip">
-    <div class="media" style="--img:url('./assets/images/delivery.jpg')"></div>
+  <div class="row flip reveal">
+    <div class="media">
+      <!-- swap image -->
+      <img src="./assets/images/delivery.jpg" alt="Delivery trucks and crates loaded for customers">
+    </div>
     <div class="text">
       <div class="text-inner">
         <p class="kicker">Fast Delivery</p>
         <h2 class="h2">Reliable Routes, Right on Time</h2>
         <p class="lead">Local distribution keeps transit short so everything arrives fresh.</p>
-
         <ul class="bullets">
-          <li class="bullet"><div class="dot"></div>
-            <div><strong>Predictable Schedules</strong><span>Regular delivery windows you can plan your day around.</span></div>
-          </li>
-          <li class="bullet"><div class="dot"></div>
-            <div><strong>Careful Loading</strong><span>Secure, clean crates and coolers prevent damage and heat.</span></div>
-          </li>
-          <li class="bullet"><div class="dot"></div>
-            <div><strong>Service Hotline</strong><span>Quick responses if you need urgency or special handling.</span></div>
-          </li>
+          <li class="bullet"><div class="dot"></div><div><strong>Predictable Schedules</strong><span>Regular delivery windows you can plan around.</span></div></li>
+          <li class="bullet"><div class="dot"></div><div><strong>Careful Loading</strong><span>Clean crates and coolers prevent damage.</span></div></li>
+          <li class="bullet"><div class="dot"></div><div><strong>Service Hotline</strong><span>Quick response for special handling.</span></div></li>
         </ul>
       </div>
     </div>
   </div>
 </section>
+
+
+<!--------------- footer ------------------>
 
 <footer class="site-footer reveal">
   <div class="footer-container  reveal-stagger">
@@ -445,12 +378,12 @@
     <div class="footer-col">
       <h3>Quick Links</h3>
       <ul>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#farming">How We Farm</a></li>
-        <li><a href="#why-us">Why Choose Us</a></li>
-        <li><a href="#vegetables">Vegetables</a></li>
-        <li><a href="#poultry">Poultry</a></li>
-        <li><a href="#dairy">Dairy</a></li>
+        <li><a href="./about-us.html">About Us</a></li>
+        <li><a href="./how-we-farm.html">How We Farm</a></li>
+        <li><a href="./why-choose-us.html">Why Choose Us</a></li>
+        <li><a href="./vegetables-products.html">Vegetables</a></li>
+        <li><a href="./poultry-products.html">Poultry</a></li>
+        <li><a href="./dairy-products.html">Dairy</a></li>
       </ul>
     </div>
 
@@ -523,37 +456,27 @@
   © 2025 FIRAS Sunrise Farms. All rights reserved.
 </div>
 
-
-
-</body>
-</html>
-<!-- Fade-in on scroll (IntersectionObserver) -->
 <script>
-  (() => {
-    const els = document.querySelectorAll('.reveal, .reveal-stagger');
-    if (!('IntersectionObserver' in window) || !els.length) return;
+/* Reveal-on-scroll */
+(() => {
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window) || !els.length) return;
+  const io = new IntersectionObserver((entries, obs)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('is-visible'); obs.unobserve(e.target); }
+    });
+  },{threshold:0.15});
+  els.forEach(el=>io.observe(el));
+})();
 
-    const io = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          obs.unobserve(entry.target); // reveal once
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
-
-    els.forEach(el => io.observe(el));
-  })();
-
-  // Mobile menu toggle
-  // Toggle mobile menu
-  const toggle = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('.top-links');
-
-  toggle.addEventListener('click', () => {
-    nav.classList.toggle('open');
-  });
-
+/* Mobile menu toggle (hamburger → X) */
+const menuBtn = document.getElementById('menuBtn');
+const navPanel = document.getElementById('topLinks');
+menuBtn.addEventListener('click',()=>{
+  const open = navPanel.classList.toggle('open');
+  menuBtn.classList.toggle('active', open);
+  document.body.classList.toggle('menu-open', open);
+});
 </script>
 </body>
 </html>
