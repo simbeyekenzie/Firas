@@ -1,0 +1,26 @@
+.two-column {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem;
+  position: relative;
+  overflow: visible;
+}
+
+.text {
+  flex: 1;
+  z-index: 2;
+  padding-right: 2rem;
+}
+
+.image {
+  flex: 1;
+  position: relative;
+}
+
+.image img {
+  width: 100%;
+  max-width: 600px;
+  margin-left: -80px; /* Causes overlap */
+  z-index: 1;
+}
