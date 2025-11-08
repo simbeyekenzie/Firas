@@ -1,0 +1,67 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { fadeIn } from "@/hooks/variants";
+import { motion } from "motion/react";
+import { useRouter } from "next/navigation";
+import React from "react";
+
+export function Header98() {
+  const router = useRouter();
+  return (
+    <section className="flex justify-center items-center text-white min-h-screen py12 md:py16 lg:py20">
+      <div className="containe">
+        <div className=" flex min-h[32rem] flex-col justify-center p-8 text-center md:min-h[40rem md:p-28">
+          <div className="w-full">
+            <motion.h1 
+              className="mb-5 text-[clamp(2rem,5vw,16rem)] md:leading-20 md:max-w-2xl  font-bold md:mb-6"
+              variants={fadeIn('up', 0.2)}
+              initial="hidden"
+              whileInView="show"
+              exit="hidden"
+            >
+              Fresh harvest from sunrise to sunset  
+            </motion.h1>
+            <motion.p 
+              className="text-text-alternative md:text-md"
+              variants={fadeIn('up', 0.25)}
+              initial="hidden"
+              whileInView="show"
+              exit="hidden"
+            >
+              Sustainable farming drives our passion. We grow quality food that
+              nourishes communities.
+            </motion.p>
+          </div>
+          <motion.div 
+            className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8"
+            variants={fadeIn('up', 0.3)}
+            initial="hidden"
+            whileInView="show"
+            exit="hidden"
+          >
+            <Button 
+              className="bg-orange hover:bg-orange-ligher" 
+              onClick={()=> router.push('/how-we-farm')} 
+              title="Explore" 
+              variant="primary"
+            >
+              Explore
+            </Button>
+            <Button title="Learn" variant="outline">
+              Learn
+            </Button>
+          </motion.div>
+          <div className="absolute inset-0 -z-10">
+            <img
+              src="/assets/images/vegetable.png"
+              className="size-full object-cover"
+              alt="Relume placeholder image"
+            />
+            <div className="absolute inset-0 bg-black/50" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

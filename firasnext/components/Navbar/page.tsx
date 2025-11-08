@@ -69,13 +69,13 @@ const Header = () => {
 
   return (
       <header
-        className={` ark:bg-background bg-transparent left-0 top-0 z-40 h-[80px] flex w-full items-center justify-between ${sticky
+        className={` ark:bg-background bg-gree left-0 top-0 z-40 h-[80px] mb-[100px] flex w-full items-center justify-between flex-row-reverse ${sticky
           ? "fixed z-[9999] !bg-opacity-80 overflow- shadow-lg backdrop-blur-sm transition"
           : "fixed "
           }`}
       >
           {/* <div className=" flex items-center relative w-full "> */}
-            <div className="flex relative lg:left-[50%] lg:-translate-x-1/2  items-center justify-between px-4" ref={navbarRef}>
+            <div className="flex relative lg:left-[50% lg:-translate-x-1/ items-center justify-between px-4" ref={navbarRef}>
               <div>
                 <button
                   onClick={navbarToggleHandler}
@@ -162,7 +162,7 @@ const Header = () => {
                 </div>
               </div> */}
             </div>
-            <div className="w-30 relative -translate-x-1/3 max-w-full px-4 xl:mr12">
+            <div className="w-30 relative -translate-x-1/2 left-[50%] max-w-full px-4 xl:mr12">
               <Link
                 href="/"
                 className={`header-logo block w-full ${sticky ? "py-5 lg:py-2" : "py-8"

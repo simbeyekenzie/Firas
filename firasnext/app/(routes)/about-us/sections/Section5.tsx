@@ -3,47 +3,34 @@ import React from 'react'
 import {motion} from 'motion/react';
 import { fadeIn } from '@/hooks/variants';
 
-const Section5 = () => {
+const Section6 = () => {
   return (
     <>
-      {/* <!-- LEADERSHIP --> */}
-  <section className="section alt reveal">
-    <div className="container">
-      <h2 className="section-title">Our Team</h2>
-      <p className="section-intro">A hands-on team focused on quality, consistency, and service.</p>
+        {/* <!-- CLIENTS / PARTNERS --> */}
+      <section className="section reveal">
+        <div className="container">
+          <h2 className="section-title">Clients & Partners</h2>
+          <p className="section-intro">Trusted by retailers, producers, and community organizations.</p>
 
-      <div className="people-grid reveal-stagger">
-        <article className="person">
-          <img src="./assets/images/leader-1.jpg" alt="Leader 1" />
-          <div className="p-body">
-            <h3>Chinyama Tembo</h3>
-            <p className="role">Director</p>
-            <p>Oversees operations, quality, and customer relationships across all product lines.</p>
+          <div className="logos reveal-stagger">
+            <img src="./assets/images/partner-1.png" alt="Partner 1" />
+            <img src="./assets/images/partner-2.png" alt="Partner 2" />
+            <img src="./assets/images/partner-3.png" alt="Partner 3" />
+            <img src="./assets/images/partner-4.png" alt="Partner 4" />
           </div>
-        </article>
+        </div>
+      </section>
 
-        <article className="person">
-          <img src="./assets/images/leader-2.jpg" alt="Leader 2" />
-          <div className="p-body">
-            <h3>Christine Miyoba</h3>
-            <p className="role">Operations Lead</p>
-            <p>Coordinates daily harvests, collections, and hygienic handling from farm to pack.</p>
-          </div>
-        </article>
-
-        <article className="person">
-          <img src="./assets/images/leader-3.jpg" alt="Leader 3" />
-          <div className="p-body">
-            <h3>Zibenji Moyo</h3>
-            <p className="role">Supply & Delivery</p>
-            <p>Manages cold-chain logistics and ensures on-time deliveries to homes and businesses.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+      {/* <!-- CTA --> */}
+      <section className="cta reveal">
+        <div className="container">
+          <h2>Get in Touch</h2>
+          <p>Have a question or want to place an order? We’re ready to help.</p>
+          <a href="contact.html" className="btn btn-solid">Contact Us</a>
+        </div>
+      </section>
     </>
   )
 }
 
-export default Section5
+export default Section6

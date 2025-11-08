@@ -3,18 +3,57 @@
 :root {
   --background: transparent;
   --foreground: #171717;
-  --orange: #ff7a1a;  
+  --white:#ffffff;
+  --green:#0f4d3f;   
+  --orange:#ff7a1a; 
+
+  --eggshell:#f7f4e8;
+  --mint:#e9f6ea;
+  --black:#0b0b0b;
+  --txt:#111;
+  --muted:#5a5f66;
+  --shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
 @theme {
-  --color-orange: #ff7a1a;
-  --color-mint-500: oklch(0.72 0.11 178);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  /* Base Orange/Pumpkin*/
+  --color-orange: #ff7a1a;
+  /* Pastel */
+  --color-orange-lightest: #FFF1E8;
+  --color-orange-ligher: #FFE4D1;
+  /* Mid-tone */
+  --color-orange-light: #FFA15E;
+  --color-orange-dark: #CC6114;
+  /* Deep */
+  --color-orange-darker: #66300A;
+  --color-orange-darkest: #4C2407;
 
+  /* Base Green/green */
+  --color-green: #0f4d3f;
+  /* Pastel */
+  --color-green-lightest: #E7EDEB;
+  --color-green-lighter: #CFDBD8;
+  /* Mid-tone */
+  --color-green-light: #578278;
+  --color-green-dark: #0C3D32;
+
+  /* Base Mint/Panache */
+  --color-mint: #e9f6ea;
+  /* Pastel */
+  --color-mint-lightest: #FCFEFC;
+  --color-mint-light: #FAFDFA;
+  /* Mid-tone */
+  --color-mint-light: #EFF8F0;
+  --color-mint-dark: #BAC4BB;
+  /* Dark */
+  --color-mint-darker: #5D625D;
+
+  --color-eggshell: #f7f4e8;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  
+  --font-poppins: Poppins,-apple-system,Segoe UI,Roboto,sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,21 +66,11 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Poppins,system-ui,-apple-system,Segoe UI,Roboto,sans-serif
 }
 
 /* Start here */
 :root{
-  --black:#0b0b0b;
-  --white:#ffffff;
-  --green:#0f4d3f;   
-  --orange:#ff7a1a;   
-  --eggshell:#f7f4e8;
-  --mint:#e9f6ea;
-
-  --txt:#111;
-  --muted:#5a5f66;
-  --shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
 body{

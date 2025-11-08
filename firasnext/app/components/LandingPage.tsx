@@ -26,7 +26,7 @@ const LandingPage = () => {
               FARM FRESH
             </motion.div>
             <motion.h1 
-              className="hero-title"
+              className="hero-title font-poppins"
               variants={fadeIn('up', 0.35)}
               initial="hidden"
               animate="show"
@@ -625,21 +625,3 @@ const LandingPage = () => {
 }
 
 export default LandingPage
-// <!-- Fade-in on scroll (IntersectionObserver) -->
-  {/* <script>
-    (() => {
-      const els = document.querySelectorAll('.reveal, .reveal-stagger');
-      if (!('IntersectionObserver' in window) || !els.length) return;
-
-      const io = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classNameList.add('is-visible');
-            obs.unobserve(entry.target); // reveal once
-          }
-        });
-      }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
-
-      els.forEach(el => io.observe(el));
-    })();
-  </script> */}

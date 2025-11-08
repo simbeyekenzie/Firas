@@ -3,46 +3,47 @@ import React from 'react'
 import {motion} from 'motion/react';
 import { fadeIn } from '@/hooks/variants';
 
-const Section4 = () => {
+const Section5 = () => {
   return (
     <>
-        {/* <!-- OUR STORY --> */}
-<section className="our-story reveal" id="our-story">
-  <div className="os-wrap">
-    <div className="os-text">
-      <h2 className="os-title">
-        <span>Our </span><b>Story</b>
-      </h2>
+      {/* <!-- LEADERSHIP --> */}
+  <section className="section alt reveal">
+    <div className="container">
+      <h2 className="section-title">Our Team</h2>
+      <p className="section-intro">A hands-on team focused on quality, consistency, and service.</p>
 
-      <p className="os-intro">
-        From modest beginnings to a multi-line farm operation serving families every day.
-        We still rise at dawn to harvest, collect, sort and deliver at peak freshness.
-      </p>
+      <div className="people-grid reveal-stagger">
+        <article className="person">
+          <img src="./assets/images/leader-1.jpg" alt="Leader 1" />
+          <div className="p-body">
+            <h3>Chinyama Tembo</h3>
+            <p className="role">Director</p>
+            <p>Oversees operations, quality, and customer relationships across all product lines.</p>
+          </div>
+        </article>
 
-      <ol className="os-timeline reveal-stagger">
-        <li>
-          <div className="os-year">2009</div>
-          <div className="os-copy">Started small with sunrise harvests and a commitment to quality and care.</div>
-        </li>
-        <li>
-          <div className="os-year">2017</div>
-          <div className="os-copy">Expanded operations across poultry and vegetables, improving handling and delivery.</div>
-        </li>
-        <li>
-          <div className="os-year">Today</div>
-          <div className="os-copy">Added dairy, strengthened hygiene standards, and built a reliable distribution network.</div>
-        </li>
-      </ol>
+        <article className="person">
+          <img src="./assets/images/leader-2.jpg" alt="Leader 2" />
+          <div className="p-body">
+            <h3>Christine Miyoba</h3>
+            <p className="role">Operations Lead</p>
+            <p>Coordinates daily harvests, collections, and hygienic handling from farm to pack.</p>
+          </div>
+        </article>
+
+        <article className="person">
+          <img src="./assets/images/leader-3.jpg" alt="Leader 3" />
+          <div className="p-body">
+            <h3>Zibenji Moyo</h3>
+            <p className="role">Supply & Delivery</p>
+            <p>Manages cold-chain logistics and ensures on-time deliveries to homes and businesses.</p>
+          </div>
+        </article>
+      </div>
     </div>
-
-    <figure className="os-media">
-      {/* <!-- Swap to your photo --> */}
-      <img src="./assets/images/our-story.jpg" alt="FIRAS Sunrise Farms through the years" />
-    </figure>
-  </div>
-</section>
+  </section>
     </>
   )
 }
 
-export default Section4
+export default Section5
