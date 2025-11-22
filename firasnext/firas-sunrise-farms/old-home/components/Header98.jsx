@@ -5,7 +5,7 @@ import React from "react";
 
 export function Header98() {
   return (
-    <section id="relume" className="px-[5%] py-12 md:py-16 lg:py-20">
+    <section  className="px-[5%] py-12 md:py-16 lg:py-20">
       <div className="container">
         <div className="relative flex min-h-[32rem] flex-col items-center justify-center p-8 text-center md:min-h-[40rem] md:p-16">
           <div className="w-full max-w-lg">
@@ -29,7 +29,7 @@ export function Header98() {
             <img
               src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
               className="size-full object-cover"
-              alt="Relume placeholder image"
+              alt="Jaz placeholder image"
             />
             <div className="absolute inset-0 bg-black/50" />
           </div>

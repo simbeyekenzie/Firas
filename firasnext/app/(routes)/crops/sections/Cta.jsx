@@ -12,7 +12,7 @@ import { IoIosHelpBuoy } from "react-icons/io";
 export function Cta36() {
   const router = useRouter();
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="jaz" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
         <div className="grid auto-cols-fr grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 lg:gap-x-16">
           <motion.div 
@@ -34,7 +34,7 @@ export function Cta36() {
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
               <Button className="bg-orange hover:bg-orange-ligher" variant="primary" onClick={() => router.push("/contact")}>Subscribe</Button>
-              <Button variant="default" onClick={() => router.push("/contact")}>Learn more</Button>
+              <Button className="" variant="default" onClick={() => router.push("/contact")}>Learn more</Button>
             </div>
           </motion.div>
           <motion.div 

@@ -6,7 +6,7 @@ import { RxChevronRight } from "react-icons/rx";
 
 export function Layout32() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section  className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
         <div className="grid grid-cols-1 items-center gap-y-12 md:grid-cols-2 md:gap-x-12 lg:gap-x-20">
           <div>
@@ -16,7 +16,7 @@ export function Layout32() {
                   <img
                     src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
                     className="size-12"
-                    alt="Relume logo 1"
+                    alt="Jaz logo 1"
                   />
                 </div>
                 <div>
@@ -34,7 +34,7 @@ export function Layout32() {
                   <img
                     src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
                     className="size-12"
-                    alt="Relume logo 1"
+                    alt="Jaz logo 1"
                   />
                 </div>
                 <div>
@@ -52,7 +52,7 @@ export function Layout32() {
                   <img
                     src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
                     className="size-12"
-                    alt="Relume logo 1"
+                    alt="Jaz logo 1"
                   />
                 </div>
                 <div>
@@ -84,7 +84,7 @@ export function Layout32() {
             <img
               src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
               className="w-full object-cover"
-              alt="Relume placeholder image"
+              alt="Jaz placeholder image"
             />
           </div>
         </div>

@@ -57,8 +57,7 @@ export function Layout486() {
   const useScroll = useRelume();
   return (
     <section
-      id="relume"
-      ref={useScroll.ref}
+      
       className="px-[5%] py-16 md:py-24 lg:py-28"
       ref={useScroll.ref}
     >

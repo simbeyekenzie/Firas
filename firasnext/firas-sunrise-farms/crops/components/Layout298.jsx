@@ -6,7 +6,7 @@ import { RxChevronRight } from "react-icons/rx";
 
 export function Layout298() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section  className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
         <div className="flex flex-col items-start">
           <div className="mx-auto mb-12 max-w-lg md:mb-18 lg:mb-20">
@@ -27,7 +27,7 @@ export function Layout298() {
                 <img
                   src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
                   className="size-12"
-                  alt="Relume logo 1"
+                  alt="Jaz logo 1"
                 />
               </div>
               <h3 className="mb-3 text-center text-xl font-bold md:mb-4 md:text-2xl">
@@ -43,7 +43,7 @@ export function Layout298() {
                 <img
                   src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
                   className="size-12"
-                  alt="Relume logo 1"
+                  alt="Jaz logo 1"
                 />
               </div>
               <h3 className="mb-3 text-center text-xl font-bold md:mb-4 md:text-2xl">
@@ -59,7 +59,7 @@ export function Layout298() {
                 <img
                   src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
                   className="size-12"
-                  alt="Relume logo 1"
+                  alt="Jaz logo 1"
                 />
               </div>
               <h3 className="mb-3 text-center text-xl font-bold md:mb-4 md:text-2xl">
@@ -75,7 +75,7 @@ export function Layout298() {
                 <img
                   src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
                   className="size-12"
-                  alt="Relume logo 1"
+                  alt="Jaz logo 1"
                 />
               </div>
               <h3 className="mb-3 text-center text-xl font-bold md:mb-4 md:text-2xl">

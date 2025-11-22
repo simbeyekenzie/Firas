@@ -6,7 +6,7 @@ import { RxChevronRight } from "react-icons/rx";
 
 export function Stats29() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section  className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
         <div className="mb-12 grid grid-cols-1 gap-y-5 md:mb-18 md:grid-cols-2 md:gap-x-12 lg:mb-20 lg:gap-x-20">
           <div>
@@ -55,7 +55,7 @@ export function Stats29() {
               <img
                 className="aspect-[3/2] size-full object-cover"
                 src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-                alt="Relume placeholder image"
+                alt="Jaz placeholder image"
               />
             </div>
           </Fragment>
@@ -90,7 +90,7 @@ export function Stats29() {
               <img
                 className="aspect-[3/2] size-full object-cover"
                 src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-                alt="Relume placeholder image"
+                alt="Jaz placeholder image"
               />
             </div>
           </Fragment>

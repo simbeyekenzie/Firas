@@ -6,7 +6,7 @@ import { RxChevronRight } from "react-icons/rx";
 
 export function Layout396() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section  className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
         <div className="mx-auto mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-20">
           <p className="mb-3 font-semibold md:mb-4">Values</p>
@@ -24,7 +24,7 @@ export function Layout396() {
                 <img
                   src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
                   className="size-12"
-                  alt="Relume logo 1"
+                  alt="Jaz logo 1"
                 />
               </div>
               <h2 className="mb-3 text-2xl font-bold md:mb-4 md:text-3xl md:leading-[1.3] lg:text-4xl">
@@ -49,7 +49,7 @@ export function Layout396() {
                 <img
                   src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
                   className="size-12"
-                  alt="Relume logo 1"
+                  alt="Jaz logo 1"
                 />
               </div>
               <h2 className="mb-3 text-2xl font-bold md:mb-4 md:text-3xl md:leading-[1.3] lg:text-4xl">
@@ -76,7 +76,7 @@ export function Layout396() {
                 <img
                   src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
                   className="size-12"
-                  alt="Relume logo 1"
+                  alt="Jaz logo 1"
                 />
               </div>
               <h2 className="mb-3 text-2xl font-bold md:mb-4 md:text-3xl md:leading-[1.3] lg:text-4xl">

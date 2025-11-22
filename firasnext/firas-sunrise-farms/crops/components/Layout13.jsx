@@ -6,7 +6,7 @@ import { RxChevronRight } from "react-icons/rx";
 
 export function Layout13() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section  className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
         <div className="grid grid-cols-1 gap-y-12 md:grid-flow-row md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
           <div>
@@ -27,7 +27,7 @@ export function Layout13() {
               <img
                 src="https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg"
                 className="max-h-12"
-                alt="Relume logo 1"
+                alt="Jaz logo 1"
               />
               <img
                 src="https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg"
@@ -37,7 +37,7 @@ export function Layout13() {
               <img
                 src="https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg"
                 className="max-h-12"
-                alt="Relume logo 2"
+                alt="Jaz logo 2"
               />
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
@@ -58,7 +58,7 @@ export function Layout13() {
             <img
               src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
               className="w-full object-cover"
-              alt="Relume placeholder image"
+              alt="Jaz placeholder image"
             />
           </div>
         </div>

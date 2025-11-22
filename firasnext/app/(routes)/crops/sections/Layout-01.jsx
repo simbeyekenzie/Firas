@@ -8,7 +8,7 @@ import { motion } from "motion/react";
 
 export function Layout141() {
   return (
-    <section id="relume" className="px[5%] bg-eggshell min-h-screen py-16 md:py-24 lg:py-28">
+    <section id="" className="px[5%] bg-eggshell min-h-screen py-16 md:py-24 lg:py-28">
       <div className="containe">
         <div className="flex flex-col items-center w-full">
           <div className=" mb-12 text-center md:mb-18 lg:mb-20">

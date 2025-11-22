@@ -37,7 +37,7 @@ const cardDetails = [
 export function Layout394() {
   const router = useRouter();
   return (
-    <section id="relume" className="px-[5%]  py-16 md:py-24 lg:py-28">
+    <section  className="px-[5%]  py-16 md:py-24 lg:py-28">
       <motion.div 
         className="mx-auto mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-20"
         variants={fadeIn('center', 0.2)}

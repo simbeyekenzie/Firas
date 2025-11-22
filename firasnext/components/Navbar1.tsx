@@ -1,11 +1,15 @@
 "use client";
 
-import { Button, useMediaQuery } from "@relume_io/relume-ui";
+import { useMediaQuery } from "@relume_io/relume-ui";
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
 import { RxChevronDown } from "react-icons/rx";
+import { Button } from "./ui/button";
+import { menuData2 } from "./Navbar/menuData";
 
-const useRelume = () => {
+const useAzan = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 991px)");
@@ -37,35 +41,72 @@ const useRelume = () => {
   };
 };
 
+
+function useIsDesktop(breakpoint = 1024) {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => setIsDesktop(window.innerWidth >= breakpoint);
+    checkScreen();
+    window.addEventListener('resize', checkScreen);
+    return () => window.removeEventListener('resize', checkScreen);
+  }, [breakpoint]);
+
+  return isDesktop;
+}
+
 export function Navbar1() {
-  const useActive = useRelume();
+  const useActive = useAzan();
+  const isDesktop = useIsDesktop();
+
+  const mobileVariants = {
+    open: { height: "auto", width: "30dvw" },
+    close: { height: "0", width: "60dvw" },
+  };
+
+  const desktopVariants = {
+    open: { height: "100dvh", width: "100dvw" },
+    close: { height: "0", width: "100dvw" },
+  };
 
   const [sticky, setSticky] = useState(false);
-    const handleStickyNavbar = () => {
-      if (window.scrollY >= 80) {
-        setSticky(true);
-      } else {
-        setSticky(false);
-      }
+  const handleStickyNavbar = () => {
+    if (window.scrollY >= 80) {
+      setSticky(true);
+    } else {
+      setSticky(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleStickyNavbar);
+    return () => {
+      window.removeEventListener("scroll", handleStickyNavbar);
     };
+  }, []);
+
   return (
     <section
-      id="relume"
-      className={`flex w-full items-center border-b border-border-primary bg-background-primary lg:min-h-18 lg:px-[5%] ${sticky
-          ? "fixed z-[9999] !bg-opacity-80 overflow- shadow-lg backdrop-blur-sm transition"
-          : "fixed "
-          }`}
+      
+      className={`flex fixed lg:opacity-100 md:bg-transparent z-1 w-full top24 items-center md:-top-5.5 borderb border-border-primary bg-background-primary lg:min-h-1 lg:px-[5%] lg:py-0 `}
     >
-      <div className="size-full lg:flex lg:items-center lg:justify-between">
-        <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
-          <a href="#">
-            <img
-              src="https://d22po4pjz3o32e.cloudfront.net/logo-image.svg"
-              alt="Logo image"
-            />
-          </a>
+      <div className="size-ful relative w-full md:px-4 text-mint-lightest lg:flex lg:items-center lg:justify-between">
+        <div className="flex min-h16 w-full items-center justify-between pr[5%] md:px-[5%] md:min-h18 lg:min-h-full lg:px0">
+          <Link
+              href="/"
+              className={`bg-mint-dark h-20 mt1.5 rounded block relative top-10 -ml8 md:ml0 md:top12 ${sticky ? "py-5 lg:py-2" : "py-8"
+                } `}
+            >
+              <Image
+                src="/assets/logo.PNG"
+                alt="logo"
+                width={40}
+                height={20}
+                className="w-full dark:idden"
+              />
+            </Link>
           <button
-            className="-mr-2 flex size-12 flex-col items-center justify-center lg:hidden"
+            className="-mr-2 flex relative top-4 size-12 flex-col items-center justify-center lg:hidden"
             onClick={useActive.toggleMobileMenu}
           >
             <motion.span
@@ -108,34 +149,33 @@ export function Navbar1() {
           </button>
         </div>
         <motion.div
-          variants={{
-            open: { height: "var(--height-open, 100dvh)" },
-            close: { height: "var(--height-closed, 0)" },
-          }}
+          variants={isDesktop ? { 
+            open: { height: "var(--height-open, auto)", width: "var(--width-open, 100dvw)" }, 
+            close: { height: "var(--height-closed, 0dvh)", width: "var(--width-open, 100vw)" }, 
+            } : 
+            {
+              open: { height: "var(--height-open, auto)", width: "var(--width-open, 300dvw)" }, 
+              close: { height: "var(--height-closed, 0dvh)", width: "var(--width-open, 6  0vw)" }, 
+            }
+          }
           initial="close"
           exit="close"
           animate={useActive.animateMobileMenu}
-          transition={{ duration: 0.4 }}
-          className="overflow-hidden px-[5%] lg:flex lg:items-center lg:px-0 lg:[--height-closed:auto] lg:[--height-open:auto]"
+          transition={{ duration: 0.4 }}  
+          className="overflow-hidden text-black px-[5%] max-w-7xl bg-mint-dark lg:bg-transparent lg:mt-16 lg:py-4 absolute lg:static w-full right-2 rounded lg:backdrop-blurmd lg:shadowlg lg:flex lg:justify-center lg:items-center md:[--width-closed:auto] lg:[--height-closed:auto]"
         >
-          <a
-            href="#"
-            className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
-          >
-            Home
-          </a>
-          <a
-            href="#"
-            className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
-          >
-            Crops
-          </a>
-          <a
-            href="#"
-            className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
-          >
-            Poultry
-          </a>
+          {menuData2.map((menu)=> {
+            return(
+              <a
+                key={menu.id}
+                href={menu.path}
+                className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
+              >
+                {menu.title}
+              </a>)
+          })
+          }
+          
           <div
             onMouseEnter={useActive.openOnDesktopDropdownMenu}
             onMouseLeave={useActive.closeOnDesktopDropdownMenu}
@@ -173,22 +213,16 @@ export function Navbar1() {
                 initial="close"
                 exit="close"
                 transition={{ duration: 0.2 }}
-                className="bg-background-primary lg:absolute lg:z-50 lg:border lg:border-border-primary lg:p-2 lg:[--y-close:25%]"
+                className="lg:absolute lg:z-50 lg:border lg:border-border-primary lg:p-2 lg:[--y-close:25%]"
               >
                 <a
-                  href="#"
+                  href="/dairy"
                   className="block py-3 pl-[5%] text-md lg:px-4 lg:py-2 lg:text-base"
-                >
+                  >
                   Dairy
                 </a>
                 <a
-                  href="#"
-                  className="block py-3 pl-[5%] text-md lg:px-4 lg:py-2 lg:text-base"
-                >
-                  Milk
-                </a>
-                <a
-                  href="#"
+                  href="/eggs"
                   className="block py-3 pl-[5%] text-md lg:px-4 lg:py-2 lg:text-base"
                 >
                   Eggs
@@ -196,16 +230,18 @@ export function Navbar1() {
               </motion.nav>
             </AnimatePresence>
           </div>
-          <div className="mt-6 flex flex-col items-center gap-4 lg:ml-4 lg:mt-0 lg:flex-row">
+          <div 
+            className="mt6 pb-3 flex flex-row items-center gap-4 lg:ml-4 lg:mt0 "
+          >
             <Button
               title="Contact"
-              variant="secondary"
+              variant="ghost"
               size="sm"
-              className="w-full"
+              className=""
             >
               Contact
             </Button>
-            <Button title="Order" size="sm" className="w-full">
+            <Button title="Order" size="sm" className="bg-orange">
               Order
             </Button>
           </div>

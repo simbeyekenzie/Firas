@@ -6,6 +6,7 @@ import { Layout518 } from "./sections/Layout-03";
 import { Testimonial13 } from "./sections/Testimonial";
 import { Cta36 } from "./sections/Cta";
 import { Faq6 } from "./sections/Faq";
+import { Layout022 } from "../dairy/components";
 
 export default function Page() {
   return (

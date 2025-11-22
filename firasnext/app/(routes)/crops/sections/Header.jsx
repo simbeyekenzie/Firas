@@ -48,7 +48,7 @@ export function Header98() {
             >
               Explore
             </Button>
-            <Button title="Learn" variant="outline">
+            <Button className="" title="Learn" variant="outline">
               Learn
             </Button>
           </motion.div>
@@ -56,7 +56,7 @@ export function Header98() {
             <img
               src="/assets/images/vegetable.png"
               className="size-full object-cover"
-              alt="Relume placeholder image"
+              alt="Jaz placeholder image"
             />
             <div className="absolute inset-0 bg-black/50" />
           </div>

@@ -7,7 +7,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 export function Team6() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section  className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
         <div className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
           <p className="mb-3 font-semibold md:mb-4">People</p>
@@ -24,7 +24,7 @@ export function Team6() {
             <div className="rb-5 mb-5 flex w-full items-center justify-center md:mb-6">
               <img
                 src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-                alt="Relume placeholder image 1"
+                alt="Jaz placeholder image 1"
                 className="aspect-square size-full object-cover"
               />
             </div>
@@ -54,7 +54,7 @@ export function Team6() {
             <div className="rb-5 mb-5 flex w-full items-center justify-center md:mb-6">
               <img
                 src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-                alt="Relume placeholder image 1"
+                alt="Jaz placeholder image 1"
                 className="aspect-square size-full object-cover"
               />
             </div>
@@ -84,7 +84,7 @@ export function Team6() {
             <div className="rb-5 mb-5 flex w-full items-center justify-center md:mb-6">
               <img
                 src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-                alt="Relume placeholder image 1"
+                alt="Jaz placeholder image 1"
                 className="aspect-square size-full object-cover"
               />
             </div>
@@ -111,7 +111,7 @@ export function Team6() {
             <div className="rb-5 mb-5 flex w-full items-center justify-center md:mb-6">
               <img
                 src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-                alt="Relume placeholder image 1"
+                alt="Jaz placeholder image 1"
                 className="aspect-square size-full object-cover"
               />
             </div>
@@ -141,7 +141,7 @@ export function Team6() {
             <div className="rb-5 mb-5 flex w-full items-center justify-center md:mb-6">
               <img
                 src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-                alt="Relume placeholder image 1"
+                alt="Jaz placeholder image 1"
                 className="aspect-square size-full object-cover"
               />
             </div>
@@ -169,7 +169,7 @@ export function Team6() {
             <div className="rb-5 mb-5 flex w-full items-center justify-center md:mb-6">
               <img
                 src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-                alt="Relume placeholder image 1"
+                alt="Jaz placeholder image 1"
                 className="aspect-square size-full object-cover"
               />
             </div>

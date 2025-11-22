@@ -57,8 +57,6 @@ export function Layout518() {
   const useScroll = useRelume();
   return (
     <section
-      id="relume"
-      ref={useScroll.containerRef}
       className="relative px-[5%] py-16 md:px-0 md:py-24 lg:h-[250vh] lg:py-0"
       ref={useScroll.containerRef}
     >
@@ -93,7 +91,7 @@ export function Layout518() {
             <img
               src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
               className="size-full object-cover"
-              alt="Relume placeholder image"
+              alt="Jaz placeholder image"
             />
             <div className="absolute inset-0 bg-black/50" />
           </div>
@@ -105,7 +103,7 @@ export function Layout518() {
                 <img
                   src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
                   className="size-12 object-cover"
-                  alt="Relume placeholder image 1"
+                  alt="Jaz placeholder image 1"
                 />
               </div>
               <h3 className="mb-3 text-4xl font-bold leading-[1.2] md:mb-4 md:text-5xl">
@@ -141,7 +139,7 @@ export function Layout518() {
                 <img
                   src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
                   className="size-12 object-cover"
-                  alt="Relume placeholder image 2"
+                  alt="Jaz placeholder image 2"
                 />
               </div>
               <h3 className="mb-3 text-4xl font-bold leading-[1.2] md:mb-4 md:text-5xl">
@@ -207,7 +205,7 @@ export function Layout518() {
                 <img
                   src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
                   className="size-full object-cover"
-                  alt="Relume placeholder image"
+                  alt="Jaz placeholder image"
                 />
                 <div className="absolute inset-0 bg-black/50" />
               </div>
@@ -225,7 +223,7 @@ export function Layout518() {
                     <img
                       src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
                       className="size-12 object-cover"
-                      alt="Relume placeholder image 1"
+                      alt="Jaz placeholder image 1"
                     />
                   </div>
                   <h3 className="mb-3 text-4xl font-bold leading-[1.2] md:mb-4 md:text-5xl lg:text-6xl">
@@ -253,7 +251,7 @@ export function Layout518() {
                     <img
                       src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
                       className="size-12 object-cover"
-                      alt="Relume placeholder image 2"
+                      alt="Jaz placeholder image 2"
                     />
                   </div>
                   <h3 className="mb-3 text-4xl font-bold leading-[1.2] md:mb-4 md:text-5xl lg:text-6xl">

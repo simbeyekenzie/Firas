@@ -41,7 +41,7 @@ export function Timeline18() {
   const useActive = useCarousel();
   return (
     <section
-      id="relume"
+      
       className="overflow-hidden px-[5%] py-16 md:py-24 lg:py-28"
     >
       <div className="container">
@@ -82,7 +82,7 @@ export function Timeline18() {
                 <div className="w-3/5 overflow-hidden">
                   <img
                     src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-                    alt="Relume placeholder image 1"
+                    alt="Jaz placeholder image 1"
                     className="w-full"
                   />
                 </div>
@@ -107,7 +107,7 @@ export function Timeline18() {
                 <div className="w-3/5 overflow-hidden">
                   <img
                     src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-                    alt="Relume placeholder image 2"
+                    alt="Jaz placeholder image 2"
                     className="w-full"
                   />
                 </div>
@@ -130,7 +130,7 @@ export function Timeline18() {
                 <div className="w-3/5 overflow-hidden">
                   <img
                     src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-                    alt="Relume placeholder image 3"
+                    alt="Jaz placeholder image 3"
                     className="w-full"
                   />
                 </div>
@@ -153,7 +153,7 @@ export function Timeline18() {
                 <div className="w-3/5 overflow-hidden">
                   <img
                     src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-                    alt="Relume placeholder image 4"
+                    alt="Jaz placeholder image 4"
                     className="w-full"
                   />
                 </div>
@@ -176,7 +176,7 @@ export function Timeline18() {
                 <div className="w-3/5 overflow-hidden">
                   <img
                     src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-                    alt="Relume placeholder image 5"
+                    alt="Jaz placeholder image 5"
                     className="w-full"
                   />
                 </div>
@@ -201,7 +201,7 @@ export function Timeline18() {
                 <div className="w-3/5 overflow-hidden">
                   <img
                     src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-                    alt="Relume placeholder image 6"
+                    alt="Jaz placeholder image 6"
                     className="w-full"
                   />
                 </div>

@@ -3,10 +3,10 @@
 import React, { SetStateAction, useEffect, useRef, useState } from 'react'
 // import styles from './navbar.module.css';
 import Link from 'next/link';
-import menuData from './menuData';
 import { usePathname } from 'next/navigation';
 import { Button } from '../ui/button';
 import Image from 'next/image';
+import { menuData } from './menuData';
 
 const Header = () => {
   // Navbar toggle

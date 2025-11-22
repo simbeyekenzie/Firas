@@ -56,14 +56,14 @@ const Hero = () => {
             Contact
           </motion.a>
           <motion.a 
-            href="./about-us.html" 
+            href="/crops" 
             className="btn btn-ghost"
             variants={fadeIn('right', 0.55)}
             initial="hidden"
             animate="show"
             exit="hidden"
           >
-            About Us
+            Our Crops
           </motion.a>
         </motion.div>
       </div>

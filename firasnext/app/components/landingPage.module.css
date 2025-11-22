@@ -431,7 +431,7 @@ body{
 /* ---------- 1) HERO (Dairy) ---------- */
 .dairy-hero{
   background: rgb(251, 250, 239);
-  padding: 12rem 1rem;
+  padding: 4rem 1rem;
 }
 .dh-wrap{
   max-width: 1200px; margin:0 auto;

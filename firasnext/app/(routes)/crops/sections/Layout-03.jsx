@@ -62,7 +62,7 @@ export function Layout518() {
   const useScroll = useRelume();
   return (
     <section
-      id="relume"
+      
       ref={useScroll.containerRef}
       className="relative px-[5%] py-16 md:px-0 md:py-24 lg:h-[250vh] lg:py-0"
     >
