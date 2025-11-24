@@ -134,7 +134,7 @@ export function Layout03() {
               <div className="hidden" />
               <p className="mb-3 font-semibold md:mb-4">Nutrients</p>
               <h2 className="rb-5 mb-5 leading-16 text-[clamp(1.5rem,4vw,10rem)] text5xl font-bold md:mb-6 md:text7xl lg:text8xl">
-                Packed with essential vitamins and minerals
+                Sourced from our own sustainable pastures
               </h2>
               <p className="md:text-md">
                 Our dairy products deliver a powerful nutritional punch. Rich in
@@ -164,12 +164,10 @@ export function Layout03() {
               <div className="hidden" />
               <p className="mb-3 font-semibold md:mb-4">Nutrients</p>
               <h2 className="rb-5 mb-5 leading-16 text-[clamp(1.5rem,4vw,10rem)] text5xl font-bold md:mb-6 md:text7xl lg:text8xl">
-                Packed with essential vitamins and minerals
+                Minimal processing, maximum flavor
               </h2>
               <p className="md:text-md">
-                Our dairy products deliver a powerful nutritional punch. Rich in
-                calcium, protein, and vital micronutrients that support strong
-                bones and healthy living.
+                Our milk goes from cow to bottle with minimal intervention. We preserve the natural taste and nutritional integrity of our dairy.
               </p>
             </FeatureCard>
             <FeatureCard
@@ -194,12 +192,10 @@ export function Layout03() {
               <div className="hidden" />
               <p className="mb-3 font-semibold md:mb-4">Nutrients</p>
               <h2 className="rb-5 mb-5 leading-16 text-[clamp(1.5rem,4vw,10rem)] text5xl font-bold md:mb-6 md:text7xl lg:text8xl">
-                Packed with essential vitamins and minerals
+                Environmentally conscious dairy
               </h2>
               <p className="md:text-md">
-                Our dairy products deliver a powerful nutritional punch. Rich in
-                calcium, protein, and vital micronutrients that support strong
-                bones and healthy living.
+                We implement eco-friendly practices that protect our land and support local ecosystems. Our farming methods minimize environmental impact.
               </p>
             </FeatureCard>
           </div>

@@ -32,10 +32,11 @@
     "node_modules"
   ],
   "include": [
-    "next-env.d.ts",
-    ".next/types/**/*.ts/*.js",
+    "**/*.jsx",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.jsx"
+    ".next/types/**/*.ts/*.js",
+    "next-env.d.ts",
+    ".next/types/**/*.ts"
   ]
 }

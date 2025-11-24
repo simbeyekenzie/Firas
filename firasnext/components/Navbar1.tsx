@@ -88,13 +88,16 @@ export function Navbar1() {
   return (
     <section
       
-      className={`flex fixed lg:opacity-100 md:bg-transparent z-1 w-full top24 items-center md:-top-5.5 borderb border-border-primary bg-background-primary lg:min-h-1 lg:px-[5%] lg:py-0 `}
+      className={`
+        flex fixed lg:opacity-100 md:bg-transparent z-1 w-full top24 items-center 
+        md:-top-5.5 borderb border-border-primary bgbackground-primary 
+        lg:min-h-1 lg:px-[5%] lg:py-0  ${sticky && 'shadow-lg backdrop-blur-sm' }`}
     >
       <div className="size-ful relative w-full md:px-4 text-mint-lightest lg:flex lg:items-center lg:justify-between">
-        <div className="flex min-h16 w-full items-center justify-between pr[5%] md:px-[5%] md:min-h18 lg:min-h-full lg:px0">
+        <div className="flex min-h16 w-full items-center justify-between pr[5%] md:px-[5%] md:min-h18 lg:min-h-full ">
           <Link
               href="/"
-              className={`bg-mint-dark h-20 mt1.5 rounded block relative top-10 -ml8 md:ml0 md:top12 ${sticky ? "py-5 lg:py-2" : "py-8"
+              className={`bg-mint-dark h-20 mt1.5 rounded block relative top-10 -ml8 py-3 md:ml0 md:top12 
                 } `}
             >
               <Image
@@ -149,21 +152,20 @@ export function Navbar1() {
           </button>
         </div>
         <motion.div
-          variants={isDesktop ? { 
-            open: { height: "var(--height-open, auto)", width: "var(--width-open, 100dvw)" }, 
-            close: { height: "var(--height-closed, 0dvh)", width: "var(--width-open, 100vw)" }, 
-            } : 
-            {
-              open: { height: "var(--height-open, auto)", width: "var(--width-open, 300dvw)" }, 
-              close: { height: "var(--height-closed, 0dvh)", width: "var(--width-open, 6  0vw)" }, 
-            }
-          }
+          variants={{
+            open: { height: "var(--height-open)", width: "var(--w-open)" }, 
+            close: { height: "var(--height-close)", width: "var(--w-close)" },
+          }}
           initial="close"
           exit="close"
           animate={useActive.animateMobileMenu}
           transition={{ duration: 0.4 }}  
-          className="overflow-hidden text-black px-[5%] max-w-7xl bg-mint-dark lg:bg-transparent lg:mt-16 lg:py-4 absolute lg:static w-full right-2 rounded lg:backdrop-blurmd lg:shadowlg lg:flex lg:justify-center lg:items-center md:[--width-closed:auto] lg:[--height-closed:auto]"
-        >
+          className="overflow-hidden text-black px-[5%] max-w-7xl bg-mint-dark lg:bg-transparent lg:mt-16 lg:py-4 absolute lg:static w-full right-2 rounded lg:backdrop-blurmd lg:shadowlg lg:flex lg:justify-center lg:items-center 
+            [--w-open:10dvw] [--height-open:auto]
+            [--w-close:40dvw] [--height-close:0]
+            lg:[--w-close:100dvw] lg:[--height-close:auto]
+          "
+          >
           {menuData2.map((menu)=> {
             return(
               <a
