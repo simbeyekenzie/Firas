@@ -3,7 +3,7 @@
 import React, { SetStateAction, useEffect, useRef, useState } from 'react'
 import styles from './navbar.module.css';
 import Link from 'next/link';
-import menuData from './menuData';
+import {menuData} from './menuData';
 import { usePathname } from 'next/navigation';
 
 const Navbar = () => {

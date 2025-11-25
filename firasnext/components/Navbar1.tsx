@@ -87,7 +87,6 @@ export function Navbar1() {
 
   return (
     <section
-      
       className={`
         flex fixed lg:opacity-100 md:bg-transparent z-1 w-full top24 items-center 
         md:-top-5.5 borderb border-border-primary bgbackground-primary 
@@ -224,10 +223,10 @@ export function Navbar1() {
                   Dairy
                 </a>
                 <a
-                  href="/eggs"
+                  href="/poultry"
                   className="block py-3 pl-[5%] text-md lg:px-4 lg:py-2 lg:text-base"
                 >
-                  Eggs
+                  Poultry
                 </a>
               </motion.nav>
             </AnimatePresence>

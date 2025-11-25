@@ -1,4 +1,4 @@
-:root{
+.wraaper{
   --black:#0b0b0b;
   --white:#ffffff;
   --green:#0f4d3f;   
@@ -11,12 +11,6 @@
   --shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
-body{
-  margin:0;
-  font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-  color:var(--txt);
-  background:linear-gradient(160deg, var(--eggshell), var(--mint) 85%);
-}
 @media (max-width: 768px) {
   body > *:not(.hero):not(.pbanner) {
     padding-left: 4rem;
@@ -188,7 +182,7 @@ body{
 
 
 /* palette hooks (uses your existing vars if present) */
-:root{
+.wrapper2{
   --eggshell:#f7f4e8;
   --mint:#e9f6ea;
   --green:#0f4d3f;

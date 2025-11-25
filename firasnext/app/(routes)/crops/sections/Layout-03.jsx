@@ -55,7 +55,7 @@ const useTablet = () => {
   return { isTablet };
 };
 
-export function Layout518() {
+export default function Layout518() {
   const router = useRouter();
   const renderTablet = useTablet();
   const renderMobile = useMobile();
@@ -173,8 +173,17 @@ export function Layout518() {
         </div>
       </ConditionalRender>
       <ConditionalRender condition={renderTablet.isTablet}>
-        <div className="mx-auto w-[90vw]  lg:sticky lg:top-0 lg:flex lg:h-screen     lg:w-full lg:items-center lg:justify-center lg:overflow-hidden">
-          <div className="grid grid-cols-1 gap-y-6 md:gap-y8 lg:h-[90vh] lg:w-[90vw] lg:grid-cols-[55vw_35vw] lg:gap-y0">
+        <div 
+          className="
+            mx-auto w-[90vw] lg:sticky lg:top-0 
+            lg:flex lg:h-screen lg:w-full lg:items-center 
+            lg:justify-center lg:overflow-hidden
+          "
+        >
+          <div className="
+            grid grid-cols-1 gap-y-6 md:gap-y8 lg:h-[90vh] 
+            lg:w-[90vw] lg:grid-cols-[55vw_35vw] lg:gap-y0
+          ">
             <motion.div
               style={useScroll.motionHeroStyles}
               className="relative flex items-center justify-center px-6 py-16 md:px-8 md:py-24 lg:p-3"
