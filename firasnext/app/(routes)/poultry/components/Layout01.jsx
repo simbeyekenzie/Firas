@@ -11,7 +11,7 @@ export function Layout01() {
         <div className="rb-12 mb-12 md:mb-18 lg:mb-20">
           <div className="mx-auto max-w-lg text-center">
             <p className="mb-3 font-semibold md:mb-4">Sustainable</p>
-            <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+            <h2 className="rb-5 mb-5 leading-10 md:leading-12 lg:leading-16  text-[clamp(1.5rem,4vw,10rem)]  text5xl font-bold md:mb-6 md:text7xl lg:text8xl">
               Ethical chicken farming practices
             </h2>
             <p className="md:text-md">
@@ -23,7 +23,7 @@ export function Layout01() {
           <div className="flex flex-col justify-center p-6 md:p-8 lg:p-12">
             <div>
               <p className="mb-2 text-sm font-semibold">Organic</p>
-              <h3 className="mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
+              <h3 className="mb-5 text 4xl font-bold text-[clamp(1.5rem,3vw,10rem)] leading-[1.2] md:mb-6 md:text 5xl lg:text 6xl">
                 Layer and broiler chicken production
               </h3>
               <p>
@@ -51,7 +51,7 @@ export function Layout01() {
               className="size-full object-cover"
               alt="Jaz placeholder image"
             />
-          </div>
+          </div>  
         </div>
       </div>
     </section>

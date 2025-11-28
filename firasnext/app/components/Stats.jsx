@@ -51,7 +51,7 @@ export function Stats() {
               results. Our commitment translates into measurable success across
               crops, livestock, and dairy production.
             </motion.p>
-            <motion.div 
+            {/* <motion.div 
               className="mt-6 flex flex-wrap items-center gap-4 md:mt-8"
               variants={fadeIn('up', 0.3)}
               initial="hidden"
@@ -74,7 +74,7 @@ export function Stats() {
               >
                 Details <RxChevronRight />
               </Button>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">

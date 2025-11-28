@@ -4,17 +4,21 @@ import React from 'react'
 import {motion} from 'motion/react';
 import { fadeIn } from '@/hooks/variants';
 import styles from "./landingPage.module.css";
+import Image from 'next/image';
 
 
 const Hero = () => {
   return (
     <section id='JazSystems
-    ' className="hero">
+    ' className={styles.hero}>
       <div className="hero-bg">
-        <img src="./assets/why-hero.JPG" alt="Chickens and eggs at sunrise on the farm" />
+        <Image
+          width={800}
+          height={800}
+          src="/assets/why-hero.JPG" 
+          alt="Chickens and eggs at sunrise on the farm" />
         <div className="overlay"></div>
       </div>
-
       <div className="hero-inner revea-stagger">
         <motion.div 
           className="sale-tag"

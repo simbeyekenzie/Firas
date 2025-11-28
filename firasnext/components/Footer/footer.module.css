@@ -11,28 +11,6 @@
   --shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
-body{
-  margin:0;
-  font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-  color:var(--txt);
-  background:linear-gradient(160deg, var(--eggshell), var(--mint) 85%);
-}
-@media (max-width: 768px) {
-  body > *:not(.hero):not(.pbanner) {
-    padding-left: 4rem;
-    padding-right: 4rem;
-  }
-}
-
-@media (max-width: 980px) {
-  body > *:not(.hero):not(.pbanner) {
-    padding-left: 4rem;
-    padding-right: 4rem;
-  }
-}
-
-
-
 /* Sticky logo */
 .logo-fixed{
   position: fixed;

@@ -23,7 +23,7 @@ export function Layout01() {
                 exit="hidden"
               >Roots</motion.p>
               <motion.h2 
-                className="rb-5 mb-5 leading-10 lg:leading-14 max-w-lg lg:max-w-3xl text-[clamp(1.5rem,4vw,10rem)] font-bold md:mb-6 md:text7xl lg:text8xl"
+                className="rb-5 mb-5 leading-10 lg:leading-16 max-w-lg lg:max-w-3xl text-[clamp(1.5rem,4vw,10rem)] font-bold md:mb-6 md:text7xl lg:text8xl"
                 variants={fadeIn('center', 0.2)}
                 initial="hidden"
                 whileInView="show"
@@ -58,14 +58,21 @@ export function Layout01() {
             </div>
           </div>
         </div>
-        <div>
+        <motion.div 
+          className="max-w-5xl items-center flex justify-center mx-auto"
+          variants={fadeIn('up', 0.35)}
+          initial="hidden"
+          whileInView="show"
+          exit="hidden"
+        >
           <Image
+            width={500}
+            height={500}
             src="/team/farm-journer.PNG"
             className="size-full object-cover rounded-2xl"
             alt="Jaz placeholder image"
-            // initial={{opacity: 0, scale: 0.3}}
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

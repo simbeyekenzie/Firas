@@ -63,28 +63,28 @@ export const menuData2: Menu[] = [
     path: "/crops",
     newTab: false,
   },
+  {
+    id: 3,
+    title: "Dairy",
+    path: "/dairy",
+    newTab: false,
+  },
+  {
+    id: 4,
+    title: "Poutry",
+    path: "/poultry",
+    newTab: false,
+  },
   // {
-  //   id: 3,
-  //   title: "Poutry",
-  //   path: "/poultry",
+  //   id: 5,
+  //   title: "Contact",
+  //   path: "/contact",
   //   newTab: false,
   // },
   // {
   //   id: 4,
   //   title: "Vegetables",
   //   path: "/vegetables-products",
-  //   newTab: false,
-  // },
-  // {
-  //   id: 5,
-  //   title: "Dairy",
-  //   path: "/dairy-products",
-  //   newTab: false,
-  // },
-  // {
-  //   id: 6,
-  //   title: "Contact",
-  //   path: "/contact",
   //   newTab: false,
   // },
 

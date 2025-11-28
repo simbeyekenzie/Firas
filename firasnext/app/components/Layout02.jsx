@@ -98,7 +98,7 @@ export function Layout02() {
                   </h2>
                   <p>{card.desc}</p>
                 </div>
-                <motion.div 
+                {/* <motion.div 
                   className="mt-5 md:mt-6"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 150 }}
@@ -111,7 +111,7 @@ export function Layout02() {
                   >
                     {card.buttonPlaceHolder} <RxChevronRight />
                   </Button>
-                </motion.div>
+                </motion.div> */}
               </motion.div>)
           })
           }

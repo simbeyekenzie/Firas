@@ -77,7 +77,7 @@ const Header = () => {
           {/* <div className=" flex items-center relative w-full "> */}
             <div className="flex relative lg:left-[50% lg:-translate-x-1/ items-center justify-between px-4" ref={navbarRef}>
               <div>
-                <button
+                <Button
                   onClick={navbarToggleHandler}
                   id="navbarToggler"
                   aria-label="Mobile Menu"
@@ -95,7 +95,7 @@ const Header = () => {
                     className={`relative my-1.5 block h-0.5 w-[30px] bg-white transition-all duration-300 dark:bg-white ${navbarOpen ? " top-[-8px] -rotate-45" : " "
                       }`}
                   />
-                </button> 
+                </Button> 
                 <nav
                   id="navbarCollapse"
                   className={`navbar absolute opacity-400 bg-[#852882]  right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 px-6 py-4 duration-300 dark:border-body-color/20 lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${navbarOpen

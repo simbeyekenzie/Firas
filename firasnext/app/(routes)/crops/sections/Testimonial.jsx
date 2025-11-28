@@ -33,7 +33,7 @@ export function Testimonial13() {
             </blockquote>
             <div className="mt-6 flex flex-nowrap items-center gap-5 md:mt-8">
               <div>
-                <p className="font-semibold">Umuntu Wapazed</p>
+                <p className="font-semibold">Sekwila Banda</p>
                 <p>Local chef</p>
               </div>
               <div className="mx-4 w-px self-stretch bg-background-alternative sm:mx-0" />

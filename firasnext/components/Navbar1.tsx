@@ -1,13 +1,14 @@
 "use client";
 
 import { useMediaQuery } from "@relume_io/relume-ui";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { RxChevronDown } from "react-icons/rx";
+// import { RxChevronDown } from "react-icons/rx";
 import { Button } from "./ui/button";
 import { menuData2 } from "./Navbar/menuData";
+import { useRouter } from "next/navigation";
 
 const useAzan = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -41,33 +42,9 @@ const useAzan = () => {
   };
 };
 
-
-function useIsDesktop(breakpoint = 1024) {
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  useEffect(() => {
-    const checkScreen = () => setIsDesktop(window.innerWidth >= breakpoint);
-    checkScreen();
-    window.addEventListener('resize', checkScreen);
-    return () => window.removeEventListener('resize', checkScreen);
-  }, [breakpoint]);
-
-  return isDesktop;
-}
-
 export function Navbar1() {
+  const router = useRouter();
   const useActive = useAzan();
-  const isDesktop = useIsDesktop();
-
-  const mobileVariants = {
-    open: { height: "auto", width: "30dvw" },
-    close: { height: "0", width: "60dvw" },
-  };
-
-  const desktopVariants = {
-    open: { height: "100dvh", width: "100dvw" },
-    close: { height: "0", width: "100dvw" },
-  };
 
   const [sticky, setSticky] = useState(false);
   const handleStickyNavbar = () => {
@@ -90,23 +67,25 @@ export function Navbar1() {
       className={`
         flex fixed lg:opacity-100 md:bg-transparent z-1 w-full top24 items-center 
         md:-top-5.5 borderb border-border-primary bgbackground-primary 
-        lg:min-h-1 lg:px-[5%] lg:py-0  ${sticky && 'shadow-lg backdrop-blur-sm' }`}
+        lg:min-h-1 lg:px-[5%] lg:py-0  ${
+          sticky && "shadow-lg backdrop-blur-sm"
+        }`}
     >
       <div className="size-ful relative w-full md:px-4 text-mint-lightest lg:flex lg:items-center lg:justify-between">
         <div className="flex min-h16 w-full items-center justify-between pr[5%] md:px-[5%] md:min-h18 lg:min-h-full ">
           <Link
-              href="/"
-              className={`bg-mint-dark h-20 mt1.5 rounded block relative top-10 -ml8 py-3 md:ml0 md:top12 
+            href="/"
+            className={`bg-mint-dark h-20 mt1.5 rounded block relative top-10 -ml8 py-3 md:ml0 md:top12 
                 } `}
-            >
-              <Image
-                src="/assets/logo.PNG"
-                alt="logo"
-                width={40}
-                height={20}
-                className="w-full dark:idden"
-              />
-            </Link>
+          >
+            <Image
+              src="/assets/logo.PNG"
+              alt="logo"
+              width={40}
+              height={20}
+              className="w-full dark:idden"
+            />
+          </Link>
           <button
             className="-mr-2 flex relative top-4 size-12 flex-col items-center justify-center lg:hidden"
             onClick={useActive.toggleMobileMenu}
@@ -152,32 +131,32 @@ export function Navbar1() {
         </div>
         <motion.div
           variants={{
-            open: { height: "var(--height-open)", width: "var(--w-open)" }, 
+            open: { height: "var(--height-open)", width: "var(--w-open)" },
             close: { height: "var(--height-close)", width: "var(--w-close)" },
           }}
           initial="close"
           exit="close"
           animate={useActive.animateMobileMenu}
-          transition={{ duration: 0.4 }}  
+          transition={{ duration: 0.4 }}
           className="overflow-hidden text-black px-[5%] max-w-7xl bg-mint-dark lg:bg-transparent lg:mt-16 lg:py-4 absolute lg:static w-full right-2 rounded lg:backdrop-blurmd lg:shadowlg lg:flex lg:justify-center lg:items-center 
             [--w-open:30dvw] [--height-open:auto]
             [--w-close:30dvw] [--height-close:0]
             lg:[--w-close:100dvw] lg:[--height-close:auto]
           "
-          >
-          {menuData2.map((menu)=> {
-            return(
+        >
+          {menuData2.map((menu) => {
+            return (
               <a
                 key={menu.id}
                 href={menu.path}
                 className="block py-3 text-md first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2"
               >
                 {menu.title}
-              </a>)
-          })
-          }
-          
-          <div
+              </a>
+            );
+          })}
+
+          {/* <div
             onMouseEnter={useActive.openOnDesktopDropdownMenu}
             onMouseLeave={useActive.closeOnDesktopDropdownMenu}
           >
@@ -219,7 +198,7 @@ export function Navbar1() {
                 <a
                   href="/dairy"
                   className="block py-3 pl-[5%] text-md lg:px-4 lg:py-2 lg:text-base"
-                  >
+                >
                   Dairy
                 </a>
                 <a
@@ -230,21 +209,20 @@ export function Navbar1() {
                 </a>
               </motion.nav>
             </AnimatePresence>
-          </div>
-          <div 
-            className="mt6 pb-3 flex flex-row items-center gap-4 lg:ml-4 lg:mt0 "
-          >
-            <Button
+          </div> */}
+          <div className="mt6 pb-3 flex flex-row items-center gap-4 lg:ml-4 lg:mt0 ">
+            {/* <Button
               title="Contact"
               variant="ghost"
               size="sm"
               className=""
             >
               Contact
-            </Button>
-            <Button 
-              title="Order" 
-              size="sm" 
+            </Button> */}
+            <Button
+              onClick={() => router.push("/contact")}
+              title="Order"
+              size="sm"
               className="bg-orange rounded-[999px]"
             >
               Order
