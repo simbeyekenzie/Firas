@@ -6,6 +6,7 @@ import { RxChevronRight } from "react-icons/rx";
 import { fadeIn } from "@/hooks/variants";
 import { motion } from "motion/react";
 import { GiJourney } from "react-icons/gi";
+import Image from "next/image";
 
 export function Layout01() {
   return (
@@ -22,7 +23,7 @@ export function Layout01() {
                 exit="hidden"
               >Roots</motion.p>
               <motion.h2 
-                className="rb-5 mb-5 leading-16 max-w-3xl text-[clamp(1.5rem,4vw,10rem)] font-bold md:mb-6 md:text7xl lg:text8xl"
+                className="rb-5 mb-5 leading-10 lg:leading-14 max-w-lg lg:max-w-3xl text-[clamp(1.5rem,4vw,10rem)] font-bold md:mb-6 md:text7xl lg:text8xl"
                 variants={fadeIn('center', 0.2)}
                 initial="hidden"
                 whileInView="show"
@@ -53,32 +54,16 @@ export function Layout01() {
                 <GiJourney size={40}/>
                 <GiJourney size={40}/>
               </motion.div>
-              <motion.div 
-                className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8"
-                variants={fadeIn('center', 0.35)}
-                initial="hidden"
-                whileInView="show"
-                exit="hidden"
-              >
-                <Button className="text-eggshell bg-green hover:bg-green-dark" title="Discover" variant="outline">
-                  Discover
-                </Button>
-                <Button
-                  title="Learn"
-                  variant="link"
-                  size="link"
-                >
-                  Learn <RxChevronRight />
-                </Button>
-              </motion.div>
+              {/* <motion.div  */}
             </div>
           </div>
         </div>
         <div>
-          <img
-            src="/assets/images/agri-journey.jpg"
+          <Image
+            src="/team/farm-journer.PNG"
             className="size-full object-cover rounded-2xl"
             alt="Jaz placeholder image"
+            // initial={{opacity: 0, scale: 0.3}}
           />
         </div>
       </div>

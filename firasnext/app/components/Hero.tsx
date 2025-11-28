@@ -8,7 +8,8 @@ import styles from "./landingPage.module.css";
 
 const Hero = () => {
   return (
-    <section className="hero">
+    <section id='JazSystems
+    ' className="hero">
       <div className="hero-bg">
         <img src="./assets/why-hero.JPG" alt="Chickens and eggs at sunrise on the farm" />
         <div className="overlay"></div>
@@ -56,14 +57,14 @@ const Hero = () => {
             Contact
           </motion.a>
           <motion.a 
-            href="/crops" 
+            href="/products" 
             className="btn btn-ghost"
             variants={fadeIn('right', 0.55)}
             initial="hidden"
             animate="show"
             exit="hidden"
           >
-            Our Crops
+            Products
           </motion.a>
         </motion.div>
       </div>

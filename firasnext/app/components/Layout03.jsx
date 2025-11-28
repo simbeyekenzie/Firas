@@ -24,7 +24,7 @@ export function Layout03() {
                 exit="hidden"
               >Legacy</motion.p>
               <motion.h2 
-                className="rb-5 mb-5 text5xl leading-16 max-w4xl text-[clamp(1.5rem,4vw,10rem)] font-bold md:mb-6 md:text7xl lg:text8xl"
+                className="rb-5 mb-5 text5xl leading-10 lg:leading-16 max-w4xl text-[clamp(1.5rem,4vw,10rem)] font-bold md:mb-6 md:text7xl lg:text8xl"
                 variants={fadeIn('center', 0.2)}
                 initial="hidden"
                 whileInView="show"
@@ -67,7 +67,7 @@ export function Layout03() {
                 <Button 
                   title="Connect" 
                   variant="secondary"
-                  className=" text-green-lightest bg-green hover:bg-green-light "
+                  className=" text-green-lightest rounded-[999px] bg-green hover:bg-green-light "
                   onClick={() => router.push("/crops")}
                 >
                   Connect

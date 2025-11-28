@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { fadeIn } from "@/hooks/variants";
 import { motion } from "motion/react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -41,21 +42,23 @@ export function Header98() {
             exit="hidden"
           >
             <Button 
-              className="bg-orange hover:bg-orange-ligher" 
+              className="bg-orange rounded-[999px] hover:bg-orange-ligher" 
               onClick={()=> router.push('/how-we-farm')} 
               title="Explore" 
               variant="primary"
             >
               Explore
             </Button>
-            <Button className="" title="Learn" variant="outline">
+            <Button className="rounded-[999px]" title="Learn" variant="outline">
               Learn
             </Button>
           </motion.div>
           <div className="absolute inset-0 -z-10">
-            <img
+            <Image
               src="/assets/images/vegetable.png"
               className="size-full object-cover"
+              width={1800}
+              height={900}
               alt="Jaz placeholder image"
             />
             <div className="absolute inset-0 bg-black/50" />

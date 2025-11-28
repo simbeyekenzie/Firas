@@ -7,11 +7,12 @@ import { BiLogoDribbble, BiLogoLinkedinSquare } from "react-icons/bi";
 import { FaXTwitter } from "react-icons/fa6";
 import { cardVariants, containerVariants, fadeIn } from "@/hooks/variants";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 const profiles = [
   {
     index: 0,
-    imgSrc: "/team/Chinyama-Miyoba.PNG" || "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+    imgSrc: "/team/Chinyama-Miyoba.jpg" || "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
     profName: "Chinyama Miyoba",
     role: "" || "Farm director",
     desc: "A seasoned finance and tax expert with an MBA from Manchester University and over 14 years at the farm, bringing strategic leadership, tax compliance expertise, and extensive experience from major institutions such as Zamtel, Airtel, Deloitte, PwC, and ZRA.",
@@ -21,9 +22,9 @@ const profiles = [
   },
   {
     index: 1,
-    imgSrc: "" || "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+    imgSrc: "/team/Christine-Miyoba.png" || "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
     profName: "Christine Miyoba",
-    role: "" || "Crop Specialist",
+    role: "" || "Farm Manager",
     desc: "Ensuring high standards in biosecurity, worker supervision, feed control, crop rotation, and water resource management to keep farm operations running efficiently.",
     in: "",
     x: "",
@@ -31,9 +32,9 @@ const profiles = [
   },
   {
     index: 2,
-    imgSrc: "" || "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+    imgSrc: "/team/Tiami-Tembo.png" || "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
     profName: "Tiami Tembo",
-    role: "" || "Livestock Manager",
+    role: "" || "Accountant",
     desc: "A dedicated livestock manager committed to ensuring optimal animal health, efficient feeding schedules, and well-coordinated farm operations for sustainable productivity.",
     in: "",
     x: "",
@@ -41,14 +42,24 @@ const profiles = [
   },
   {
     index: 3,
-    imgSrc: "" || "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
-    profName: "Kenzie Simbeye",
-    role: "" || "IT Specialist",
-    desc: "Focused on delivering secure, scalable, and user-centered systems while optimizing operations through modern technologies and best practices.",
+    imgSrc: "/team/Joseph-Mapanza.png" || "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+    profName: "Joseph Mapanza",
+    role: "" || "Farm Manager",
+    desc: "Ensuring high standards in biosecurity, worker supervision, feed control, crop rotation, and water resource management to keep farm operations running efficiently.",
     in: "",
     x: "",
     fb: "",
   },
+  // {
+  //   index: 3,
+  //   imgSrc: "" || "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+  //   profName: "Kenzie Simbeye",
+  //   role: "" || "IT Specialist",
+  //   desc: "Focused on delivering secure, scalable, and user-centered systems while optimizing operations through modern technologies and best practices.",
+  //   in: "",
+  //   x: "",
+  //   fb: "",
+  // },
 ]
 export function Team6() {
   const router = useRouter();
@@ -108,7 +119,9 @@ export function Team6() {
               }}
             >
               <div className="rb-5 mb-5 flex w-full items-center justify-center md:mb-6">
-                <img
+                <Image
+                  width={800}
+                  height={800}
                   src={prof.imgSrc}
                   alt="Profile placeholder image"
                   className="aspect-square size-full object-cover"
@@ -152,7 +165,7 @@ export function Team6() {
           </p>
           <div className="mt-6 flex items-center justify-center gap-x-4 text-center md:mt-8">
             <Button 
-              className="hover:bg-mint-darker"
+              className="hover:bg-mint-darker rounded-[999px]"
               title="View positions" 
               variant="outline"
               onClick={() => router.push('/contact')}

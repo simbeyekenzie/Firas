@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import { BiSolidStar } from "react-icons/bi";
 import { LuChefHat } from "react-icons/lu";
@@ -10,7 +11,9 @@ export function Testimonial13() {
       <div className="containe">
         <div className="grid w-full auto-cols-fr grid-cols-1 items-center justify-center gap-12 md:grid-cols-2 md:gap-10 lg:gap-x-20">
           <div className="order-last md:order-first">
-            <img
+            <Image
+              width={1800}
+              height={1800}
               src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
               alt="Testimonial image 1"
               className="aspect-square w-full object-cover"

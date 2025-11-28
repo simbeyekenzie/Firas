@@ -5,6 +5,7 @@ import React from "react";
 import { RxChevronRight } from "react-icons/rx";
 import { fadeIn } from "@/hooks/variants";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 export function Layout141() {
   return (
@@ -65,18 +66,22 @@ export function Layout141() {
               </motion.div>
             </div>
           </div>
-          <div className="inset-0 -z10">
-            <motion.img
+          <motion.div 
+            className="inset-0 -z10"
+            variants={fadeIn('up', 0.35)}
+            initial="hidden"
+            whileInView="show"
+            exit="hidden"
+          >
+            <Image
               src="/assets/images/vegetable.png"
-              className="size-full object-cover rounded"
+              className="size-full object-cover rounded-2xl"
               alt="Img placeholder image"
-              variants={fadeIn('up', 0.35)}
-              initial="hidden"
-              whileInView="show"
-              exit="hidden"
+              width={800}
+              height={800}
             />
             {/* <div className="absolute inset-0 bg-black/50" />                                                                                                                                                                                                                     */}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -11,6 +11,7 @@ import { RxChevronRight } from "react-icons/rx";
 import { fadeIn } from "@/hooks/variants";
 import { motion } from "motion/react";
 import { IoNutritionOutline } from "react-icons/io5";
+import Image from "next/image";
 
 export function Layout02() {
   const router = useRouter();
@@ -100,17 +101,21 @@ export function Layout02() {
               </Button>
             </motion.div>
           </div>
-          <div className="max-w-md">
-            <motion.img
+          <motion.div 
+            className="max-w-md"
+            variants={fadeIn('center', 0.25)}
+            initial="hidden"
+            whileInView="show"
+            exit="hidden"
+          >
+            <Image
+              width={1800}
+              height={1800}
               src="/assets/images/sour-milk.jpg"
               className="w-full object-cover rounded-2xl"
               alt="Jaz placeholder image"
-              variants={fadeIn('center', 0.25)}
-              initial="hidden"
-              whileInView="show"
-              exit="hidden"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

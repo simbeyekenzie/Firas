@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from "./footer.module.css";
+import { Button } from '../ui/button';
 
 const Footer = () => {
   return (
@@ -11,12 +12,12 @@ const Footer = () => {
         <div className="footer-col">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="./about-us.html">About Us</a></li>
-            <li><a href="./how-we-farm.html">How We Farm</a></li>
-            <li><a href="./why-choose-us.html">Why Choose Us</a></li>
-            <li><a href="./vegetables-products.html">Vegetables</a></li>
-            <li><a href="./poultry-products.html">Poultry</a></li>
-            <li><a href="./dairy-products.html">Dairy</a></li>
+            {/* <li><a href="./about-us.html">About Us</a></li> */}
+            <li><a href="/">Home</a></li>
+            <li><a href="/crops">Crops</a></li>
+            <li><a href="/dairy">Dairy</a></li>
+            <li><a href="/poultry">Poultry</a></li>
+            {/* <li><a href="./dairy-products.html">Dairy</a></li> */}
           </ul>
         </div>
     
@@ -77,11 +78,10 @@ const Footer = () => {
           <h3>Join The Newsletter</h3>
           <form className="newsletter-form">
             <input type="email" placeholder="Email" required />
-            <button type="submit">Send</button>
+            <Button className='rounded' type="submit">Send</Button>
           </form>
         </div>
       </div>
-
     </footer>
     </>
   )

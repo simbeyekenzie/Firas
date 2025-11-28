@@ -160,8 +160,8 @@ export function Navbar1() {
           animate={useActive.animateMobileMenu}
           transition={{ duration: 0.4 }}  
           className="overflow-hidden text-black px-[5%] max-w-7xl bg-mint-dark lg:bg-transparent lg:mt-16 lg:py-4 absolute lg:static w-full right-2 rounded lg:backdrop-blurmd lg:shadowlg lg:flex lg:justify-center lg:items-center 
-            [--w-open:10dvw] [--height-open:auto]
-            [--w-close:40dvw] [--height-close:0]
+            [--w-open:30dvw] [--height-open:auto]
+            [--w-close:30dvw] [--height-close:0]
             lg:[--w-close:100dvw] lg:[--height-close:auto]
           "
           >
@@ -242,7 +242,11 @@ export function Navbar1() {
             >
               Contact
             </Button>
-            <Button title="Order" size="sm" className="bg-orange">
+            <Button 
+              title="Order" 
+              size="sm" 
+              className="bg-orange rounded-[999px]"
+            >
               Order
             </Button>
           </div>

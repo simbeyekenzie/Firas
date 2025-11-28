@@ -6,6 +6,7 @@ import { RxChevronRight } from "react-icons/rx";
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
 import { cardVariants, containerVariants, fadeIn } from "@/hooks/variants";
+import Image from "next/image";
 
 const cardDetails = [
   {
@@ -109,7 +110,9 @@ export function Layout394() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <img
+                <Image
+                  width={1800}
+                  height={1800}
                   className="object-cove h-full"
                   src={card.imgSrc}
                   alt="Vegetable placeholder image"

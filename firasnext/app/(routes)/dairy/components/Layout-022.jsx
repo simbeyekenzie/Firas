@@ -4,6 +4,7 @@ import React from 'react'
 import styles from '../../../components/landingPage.module.css';
 import { fadeIn } from "@/hooks/variants";
 import { motion } from "motion/react";
+import Image from 'next/image';
 
 const Layout022 = () => {
   return (
@@ -31,7 +32,10 @@ const Layout022 = () => {
             whileInView="show"
             exit="hidden"
           >
-            <img src="./assets/splash.PNG" alt="Cows and milk" />
+            <Image
+              width={1800}
+              height={1800}
+             src="/assets/splash.PNG" alt="Cows and milk" />
           </motion.div>
         </div>
       </section>

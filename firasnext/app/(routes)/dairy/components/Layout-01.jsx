@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 import { FaBottleDroplet } from "react-icons/fa6";
 import { RxChevronRight } from "react-icons/rx";
+import Image from "next/image";
 
 export function Layout01() {
   return (
@@ -63,8 +64,10 @@ export function Layout01() {
             </motion.div> */}
           </div>
           <div>
-            <img
-              src="./assets/images/milkvideo.PNG"
+            <Image
+              width={1800}
+              height={1800}
+              src="/assets/images/milkvideo.PNG"
               className="w-full object-cover"
               alt="Jaz placeholder image"
             />

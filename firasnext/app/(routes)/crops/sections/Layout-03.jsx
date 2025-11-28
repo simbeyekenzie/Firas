@@ -8,6 +8,7 @@ import { RxChevronRight } from "react-icons/rx";
 import { Button } from "@/components/ui/button";
 import { fadeIn } from "@/hooks/variants";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const ConditionalRender = ({ condition, children }) => {
   return condition ? <>{children}</> : null;
@@ -236,7 +237,9 @@ export default function Layout518() {
                 </motion.div>
               </motion.div>
               <div className="absolute inset-0 -z-10">
-                <img
+                <Image
+                  width={1800}
+                  height={1800}
                   src="/assets/images/nurturing-land2.jpg"
                   className="size-full object-cover"
                   alt="Icon placeholder image"

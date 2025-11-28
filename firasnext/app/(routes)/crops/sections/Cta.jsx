@@ -33,7 +33,7 @@ export function Cta36() {
               practices
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
-              <Button className="bg-orange hover:bg-orange-ligher" variant="primary" onClick={() => router.push("/contact")}>Subscribe</Button>
+              <Button className="bg-orange rounded-[999px] hover:bg-orange-ligher" variant="primary" onClick={() => router.push("/contact")}>Subscribe</Button>
               <Button className="" variant="default" onClick={() => router.push("/contact")}>Learn more</Button>
             </div>
           </motion.div>
@@ -52,7 +52,7 @@ export function Cta36() {
             </h2>
             <p>Help us continue growing quality food for our community</p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
-              <Button className="bg-orange hover:bg-orange-ligher" variant="primary" onClick={() => router.push("/contact")}>Donate</Button>
+              <Button className="bg-orange rounded-[999px] hover:bg-orange-ligher" variant="primary" onClick={() => router.push("/contact")}>Donate</Button>
               <Button variant="default" onClick={() => router.push("/contact")}>Get involved</Button>
             </div>
           </motion.div>

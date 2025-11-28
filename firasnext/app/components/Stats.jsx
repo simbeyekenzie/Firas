@@ -61,7 +61,7 @@ export function Stats() {
               <Button 
                 title="Explore" 
                 variant="secondary"
-                className="text-white hover:text-green bg-green hover:bg-green-lighter"
+                className="text-white rounded-[999px] hover:text-green bg-green hover:bg-green-lighter"
                 onClick={() => router.push('/crops')}  
               >
                 Explore
@@ -125,10 +125,10 @@ export function Stats() {
                 75%
               </p>
               <h3 className="text-md font-bold leading-[1.4] md:text-xl">
-                Crop diversity
+                Dairy production
               </h3>
               <p className="mt-2">
-                Seven distinct crop varieties cultivated with precision and care
+                Consistent dairy quality through advanced dairy management techniques
               </p>
             </motion.div>
           </Fragment>
@@ -144,10 +144,10 @@ export function Stats() {
                 92%
               </p>
               <h3 className="text-md font-bold leading-[1.4] md:text-xl">
-                Crop diversity
+                Livestock health
               </h3>
               <p className="mt-2">
-                Seven distinct crop varieties cultivated with precision and care
+                Maintaining superior breeding and nutrition standards for both cattle and poultry
               </p>
             </motion.div>
           </Fragment>
